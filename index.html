@@ -168,9 +168,9 @@
   .hero-gallery-btn:hover { background: white; transform: translateY(-50%) scale(1.08); }
   .hero-gallery-btn.prev { left: 12px; }
   .hero-gallery-btn.next { right: 12px; }
-  .hero-thumbs { display: flex; gap: 8px; margin-top: 10px; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 2px; }
+  .hero-thumbs { display: flex; gap: 8px; margin-top: 10px; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 2px; padding-right: 2px; }
   .hero-thumbs::-webkit-scrollbar { display: none; }
-  .hero-thumb { flex-shrink: 0; width: calc((100% - 48px) / 7); min-width: 72px; cursor: pointer; border-radius: 4px; overflow: hidden; border: 2px solid transparent; transition: border-color 0.2s, opacity 0.2s; opacity: 0.65; position: relative; }
+  .hero-thumb { flex-shrink: 0; width: calc((100% - 48px) / 7); min-width: 64px; max-width: 96px; cursor: pointer; border-radius: 4px; overflow: hidden; border: 2px solid transparent; transition: border-color 0.2s, opacity 0.2s; opacity: 0.65; position: relative; }
   .hero-thumb:hover { opacity: 0.9; }
   .hero-thumb.active { border-color: var(--accent); opacity: 1; }
   .hero-thumb img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
@@ -289,12 +289,49 @@
   .step-title { font-family: 'Noto Serif KR', serif; font-size: 17px; font-weight: 600; color: var(--darkbrown); margin-bottom: 8px; }
   .step-text { font-size: 13px; color: var(--muted); line-height: 1.85; }
   .step-note { display: inline-block; margin-top: 12px; padding: 4px 12px; background: var(--rice); border-radius: 100px; font-size: 11px; color: var(--accent); font-weight: 500; }
-  .usage-note { margin-top: 48px; padding: 28px 36px; background: #F2E8E2; border-radius: 4px; border-left: 4px solid var(--accent); display: flex; align-items: center; gap: 32px; }
-  .usage-note-title { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 500; }
-  .usage-items { display: flex; gap: 40px; }
-  .usage-item { text-align: center; }
-  .usage-item .val { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--darkbrown); line-height: 1; }
-  .usage-item .lbl { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .usage-note {
+    margin-top: 48px;
+    background: rgba(245,236,215,0.35);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    padding: 36px 48px;
+  }
+  .usage-note-title {
+    font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin-bottom: 32px;
+  }
+  .usage-items {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr 1px 1fr;
+    gap: 0;
+    align-items: center;
+  }
+  .usage-divider {
+    width: 1px; align-self: stretch;
+    background: rgba(139,105,20,0.2);
+  }
+  .usage-item {
+    text-align: center;
+    padding: 8px 24px;
+  }
+  .usage-item .val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px; font-weight: 300;
+    color: var(--darkbrown); line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .usage-item .lbl {
+    font-size: 13px; color: var(--muted);
+    line-height: 1.5; margin-top: 0;
+    white-space: normal;
+  }
+  @media (max-width: 600px) {
+    .usage-note { padding: 28px 24px; }
+    .usage-item .val { font-size: 40px; }
+    .usage-item { padding: 8px 12px; }
+    .usage-item .lbl { font-size: 12px; }
+  }
 
   /* ── CLINICAL ── */
   .clinical { background: #F7F4EE; }
@@ -810,23 +847,21 @@
     </div>
   </div>
   <div class="usage-note">
-    <div>
-      <div class="usage-note-title" data-i18n="usage-title">권장 사용량</div>
-      <div class="usage-items">
-        <div class="usage-item">
-          <div class="val">0.2g</div>
-          <div class="lbl" data-i18n="usage1">일반 손세정</div>
-        </div>
-        <div class="usage-item" style="width:1px;background:rgba(139,105,20,0.2);align-self:stretch;"></div>
-        <div class="usage-item">
-          <div class="val">0.5g</div>
-          <div class="lbl" data-i18n="usage2">풍성하게 손세정</div>
-        </div>
-        <div class="usage-item" style="width:1px;background:rgba(139,105,20,0.2);align-self:stretch;"></div>
-        <div class="usage-item">
-          <div class="val">1g</div>
-          <div class="lbl" data-i18n="usage3">세안 시</div>
-        </div>
+    <div class="usage-note-title" data-i18n="usage-title">권장 사용량</div>
+    <div class="usage-items">
+      <div class="usage-item">
+        <div class="val">0.2g</div>
+        <div class="lbl" data-i18n="usage1">일반 손세정</div>
+      </div>
+      <div class="usage-divider"></div>
+      <div class="usage-item">
+        <div class="val">0.5g</div>
+        <div class="lbl" data-i18n="usage2">풍성하게 손세정</div>
+      </div>
+      <div class="usage-divider"></div>
+      <div class="usage-item">
+        <div class="val">1g</div>
+        <div class="lbl" data-i18n="usage3">세안 시</div>
       </div>
     </div>
   </div>
