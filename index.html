@@ -139,7 +139,7 @@
   .hero {
     min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
     align-items: center; padding: 100px 48px 60px;
-    position: relative; overflow: hidden;
+    position: relative; overflow: clip;
   }
   .hero::before {
     content: ''; position: absolute; inset: 0;
@@ -168,9 +168,9 @@
   .hero-gallery-btn:hover { background: white; transform: translateY(-50%) scale(1.08); }
   .hero-gallery-btn.prev { left: 12px; }
   .hero-gallery-btn.next { right: 12px; }
-  .hero-thumbs { display: flex; gap: 8px; margin-top: 10px; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 2px; padding-right: 2px; }
+  .hero-thumbs { display: flex; gap: 8px; margin-top: 10px; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 4px; padding-right: 16px; scroll-behavior: smooth; }
   .hero-thumbs::-webkit-scrollbar { display: none; }
-  .hero-thumb { flex-shrink: 0; width: calc((100% - 48px) / 7); min-width: 64px; max-width: 96px; cursor: pointer; border-radius: 4px; overflow: hidden; border: 2px solid transparent; transition: border-color 0.2s, opacity 0.2s; opacity: 0.65; position: relative; }
+  .hero-thumb { flex-shrink: 0; width: calc((100% - 64px) / 7); min-width: 56px; max-width: 90px; cursor: pointer; border-radius: 4px; overflow: hidden; border: 2px solid transparent; transition: border-color 0.2s, opacity 0.2s; opacity: 0.65; position: relative; }
   .hero-thumb:hover { opacity: 0.9; }
   .hero-thumb.active { border-color: var(--accent); opacity: 1; }
   .hero-thumb img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
@@ -295,10 +295,11 @@
     border-radius: 12px;
     border-left: 4px solid var(--accent);
     padding: 36px 48px;
+    max-width: 680px;        /* PC: 너무 와이드 방지 */
   }
   .usage-note-title {
     font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--accent); font-weight: 600; margin-bottom: 32px;
+    color: var(--accent); font-weight: 600; margin-bottom: 28px;
   }
   .usage-items {
     display: grid;
@@ -309,28 +310,30 @@
   .usage-divider {
     width: 1px; align-self: stretch;
     background: rgba(139,105,20,0.2);
+    min-height: 60px;
   }
   .usage-item {
     text-align: center;
-    padding: 8px 24px;
+    padding: 4px 20px;
   }
   .usage-item .val {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 56px; font-weight: 300;
+    font-size: 52px; font-weight: 300;
     color: var(--darkbrown); line-height: 1;
     letter-spacing: -0.02em;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
   .usage-item .lbl {
-    font-size: 13px; color: var(--muted);
-    line-height: 1.5; margin-top: 0;
-    white-space: normal;
+    font-size: 12px; color: var(--muted);
+    line-height: 1.45; margin-top: 0;
+    white-space: nowrap;   /* 모바일에서 줄바꿈 방지 */
   }
   @media (max-width: 600px) {
-    .usage-note { padding: 28px 24px; }
-    .usage-item .val { font-size: 40px; }
-    .usage-item { padding: 8px 12px; }
-    .usage-item .lbl { font-size: 12px; }
+    .usage-note { padding: 24px 20px; max-width: 100%; }
+    .usage-item .val { font-size: 36px; margin-bottom: 6px; }
+    .usage-item { padding: 4px 8px; }
+    .usage-item .lbl { font-size: 11px; }
+    .usage-note-title { margin-bottom: 20px; }
   }
 
   /* ── CLINICAL ── */
@@ -470,7 +473,7 @@
     .nav-links { display: none; }
     section { padding: 70px 24px; }
     .hero { display: flex !important; flex-direction: column !important; padding: 80px 20px 32px !important; min-height: unset !important; gap: 20px !important; }
-    .hero-text { padding-right: 0; margin-bottom: 0; }
+    .hero-text { padding-right: 0; padding-left: 4px; margin-bottom: 0; }
     .hero-subtitle { margin-bottom: 20px; }
     .hero-badges { margin-bottom: 20px; }
     .hero-visual { width: 100%; }
@@ -497,7 +500,7 @@
     section { padding: 50px 20px; }
     nav { padding: 12px 20px; }
     section.hero { display: flex !important; flex-direction: column !important; padding: 70px 20px 24px !important; gap: 20px !important; min-height: unset !important; }
-    .hero-text { padding-right: 0; }
+    .hero-text { padding-right: 0; padding-left: 4px; }
     .hero-visual { width: 100%; }
     .hero-title { font-size: 34px; margin-bottom: 12px; }
     .hero-subtitle { font-size: 13px; margin-bottom: 16px; line-height: 1.7; }
