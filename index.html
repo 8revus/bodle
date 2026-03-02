@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>보들 쌀라떼 워시</title>
+<title data-i18n="page-title">보들 쌀라떼 워시 - 제품 상세 페이지</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -21,9 +21,7 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--cream);
     color: var(--text);
@@ -32,134 +30,91 @@
     overflow-x: hidden;
   }
 
-.info-photos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin: 0 auto 56px;
-  max-width: 1100px;
-}
+  /* ── LANGUAGE SWITCHER ── */
+  .lang-switcher {
+    display: flex; align-items: center; gap: 4px;
+    margin-left: 20px;
+    flex-shrink: 0;
+  }
+  .lang-btn {
+    background: none; border: none; cursor: pointer;
+    font-size: 11px; font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.12em; font-weight: 500;
+    color: var(--muted); padding: 5px 7px;
+    border-radius: 2px;
+    transition: color 0.2s, background 0.2s;
+    text-transform: uppercase;
+  }
+  .lang-btn.active {
+    color: var(--darkbrown);
+    background: rgba(139,105,20,0.10);
+    font-weight: 700;
+  }
+  .lang-btn:hover:not(.active) { color: var(--accent); }
+  .lang-divider {
+    color: rgba(139,105,20,0.28);
+    font-size: 11px;
+    user-select: none;
+  }
 
-.info-photo {
-  width: 100%;
-  aspect-ratio: 4/3;
-  border-radius: 4px;
-  box-shadow: 0 6px 20px rgba(92,66,9,0.10);
-  object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: block;
-  cursor: pointer;
-}
-
-.info-photo:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 36px rgba(92,66,9,0.15);
-}
-
-.product-main-name {
-  font-family: 'Noto Serif KR', serif;
-  font-size: clamp(20px, 3vw, 26px);
-  font-weight: 600;
-  color: var(--darkbrown);
-  text-align: center;
-  margin: 0 0 36px;
-  letter-spacing: -0.02em;
-}
-
-.info-table-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  max-width: 960px;
-  margin: 0 auto 32px;
-  border: 1px solid rgba(139,105,20,0.12);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.info-table-column {
-  padding: 0;
-  background: transparent;
-}
-
-.info-table-column.left {
-  border-right: 1px solid rgba(139,105,20,0.12);
-}
-
-.info-table-column table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.info-table-column th {
-  width: 100px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--muted);
-  text-align: left;
-  padding: 13px 20px;
-  border-bottom: 1px solid rgba(139,105,20,0.08);
-  background: rgba(245,236,215,0.35);
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-}
-
-.info-table-column td {
-  font-size: 12.5px;
-  padding: 13px 20px;
-  border-bottom: 1px solid rgba(139,105,20,0.08);
-  color: var(--text);
-  line-height: 1.6;
-}
-
-.info-table-column tr:last-child th,
-.info-table-column tr:last-child td {
-  border-bottom: none;
-}
-
-.info-note {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.8;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  opacity: 0.85;
-}
-
-/* 모바일 반응형 */
-@media (max-width: 768px) {
   .info-photos-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 0 auto 56px;
+    max-width: 1100px;
+  }
+  .info-photo {
+    width: 100%; aspect-ratio: 4/3; border-radius: 4px;
+    box-shadow: 0 6px 20px rgba(92,66,9,0.10);
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block; cursor: pointer;
+  }
+  .info-photo:hover { transform: scale(1.02); box-shadow: 0 12px 36px rgba(92,66,9,0.15); }
+
+  .product-main-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(20px, 3vw, 26px); font-weight: 600;
+    color: var(--darkbrown); text-align: center;
+    margin: 0 0 36px; letter-spacing: -0.02em;
   }
 
   .info-table-container {
-    grid-template-columns: 1fr;
-    border-radius: 4px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; max-width: 960px; margin: 0 auto 32px;
+    border: 1px solid rgba(139,105,20,0.12);
+    border-radius: 4px; overflow: hidden;
   }
-
-  .info-table-column.left {
-    border-right: none;
-    border-bottom: 1px solid rgba(139,105,20,0.12);
-  }
-
+  .info-table-column { padding: 0; background: transparent; }
+  .info-table-column.left { border-right: 1px solid rgba(139,105,20,0.12); }
+  .info-table-column table { width: 100%; border-collapse: collapse; }
   .info-table-column th {
-    width: 90px;
-    padding: 11px 16px;
-    font-size: 11.5px;
+    width: 100px; font-size: 12px; font-weight: 600;
+    color: var(--muted); text-align: left; padding: 13px 20px;
+    border-bottom: 1px solid rgba(139,105,20,0.08);
+    background: rgba(245,236,215,0.35); letter-spacing: 0.02em; white-space: nowrap;
   }
-
   .info-table-column td {
-    padding: 11px 16px;
-    font-size: 12px;
+    font-size: 12.5px; padding: 13px 20px;
+    border-bottom: 1px solid rgba(139,105,20,0.08);
+    color: var(--text); line-height: 1.6;
+  }
+  .info-table-column tr:last-child th,
+  .info-table-column tr:last-child td { border-bottom: none; }
+  .info-note {
+    font-size: 12px; color: var(--muted); line-height: 1.8;
+    text-align: center; max-width: 800px; margin: 0 auto; opacity: 0.85;
   }
 
-  .product-main-name {
-    font-size: 20px;
-    margin-bottom: 28px;
+  @media (max-width: 768px) {
+    .info-photos-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .info-table-container { grid-template-columns: 1fr; border-radius: 4px; }
+    .info-table-column.left { border-right: none; border-bottom: 1px solid rgba(139,105,20,0.12); }
+    .info-table-column th { width: 90px; padding: 11px 16px; font-size: 11.5px; }
+    .info-table-column td { padding: 11px 16px; font-size: 12px; }
+    .product-main-name { font-size: 20px; margin-bottom: 28px; }
   }
-}
 
   /* ── NAV ── */
   nav {
@@ -171,710 +126,211 @@
     border-bottom: 1px solid rgba(139,105,20,0.12);
   }
   .nav-logo {
-    text-decoration: none;
-    margin-right: auto;
+    text-decoration: none; margin-right: auto;
     display: flex; align-items: baseline; gap: 7px;
   }
-  .nav-logo .kr {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 22px; font-weight: 700;
-    color: var(--darkbrown);
-    letter-spacing: -0.01em;
-  }
-  .nav-logo .en {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 14px; font-weight: 400;
-    color: var(--brown);
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-  }
+  .nav-logo .kr { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 700; color: var(--darkbrown); letter-spacing: -0.01em; }
+  .nav-logo .en { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 400; color: var(--brown); letter-spacing: 0.25em; text-transform: uppercase; }
   .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a {
-    font-size: 12px; letter-spacing: 0.1em;
-    color: var(--muted); text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.3s;
-  }
+  .nav-links a { font-size: 12px; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; text-transform: uppercase; transition: color 0.3s; }
   .nav-links a:hover { color: var(--accent); }
 
   /* ── HERO ── */
   .hero {
-    min-height: 100vh;
-    display: grid; grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 100px 48px 60px;
-    position: relative;
-    overflow: hidden;
+    min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 100px 48px 60px;
+    position: relative; overflow: hidden;
   }
   .hero::before {
-    content: '';
-    position: absolute; inset: 0;
+    content: ''; position: absolute; inset: 0;
     background: radial-gradient(ellipse 70% 60% at 70% 50%, rgba(232,213,176,0.45) 0%, transparent 70%);
     pointer-events: none;
   }
   .hero-text { padding-right: 60px; }
-  .hero-eyebrow {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px; letter-spacing: 0.25em;
-    color: var(--accent); text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  .hero-title {
-    font-family: 'Noto Serif KR', serif;
-    font-size: clamp(38px, 5vw, 58px);
-    font-weight: 600; line-height: 1.25;
-    color: var(--darkbrown);
-    margin-bottom: 24px;
-  }
-  .hero-subtitle {
-    font-size: 16px; line-height: 1.9;
-    color: var(--muted); font-weight: 300;
-    margin-bottom: 40px;
-    max-width: 460px;
-  }
-  .hero-badges {
-    display: flex; gap: 12px; flex-wrap: wrap;
-    margin-bottom: 44px;
-  }
-  .badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 8px 18px;
-    background: rgba(255,255,255,0.7);
-    border: 1px solid rgba(139,105,20,0.25);
-    border-radius: 100px;
-    font-size: 12px; font-weight: 500;
-    color: var(--darkbrown); letter-spacing: 0.05em;
-  }
-  .badge.vegan {
-    background: rgba(74,103,65,0.1);
-    border-color: rgba(74,103,65,0.35);
-    color: var(--green);
-  }
-  .btn-primary {
-    display: inline-block;
-    padding: 16px 44px;
-    background: #A8694D;
-    color: #FAF6F0; font-size: 13px;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    text-decoration: none; border-radius: 2px;
-    transition: background 0.3s, transform 0.2s;
-  }
+  .hero-eyebrow { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 0.25em; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; }
+  .hero-title { font-family: 'Noto Serif KR', serif; font-size: clamp(38px, 5vw, 58px); font-weight: 600; line-height: 1.25; color: var(--darkbrown); margin-bottom: 24px; }
+  .hero-subtitle { font-size: 16px; line-height: 1.9; color: var(--muted); font-weight: 300; margin-bottom: 40px; max-width: 460px; }
+  .hero-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(255,255,255,0.7); border: 1px solid rgba(139,105,20,0.25); border-radius: 100px; font-size: 12px; font-weight: 500; color: var(--darkbrown); letter-spacing: 0.05em; }
+  .badge.vegan { background: rgba(74,103,65,0.1); border-color: rgba(74,103,65,0.35); color: var(--green); }
+  .btn-primary { display: inline-block; padding: 16px 44px; background: #A8694D; color: #FAF6F0; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.2s; }
   .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
-
-  .hero-visual {
-    position: relative; display: flex;
-    justify-content: center; align-items: center;
-  }
-  .hero-img-main {
-    width: 100%; max-width: 680px;
-    border-radius: 4px;
-    box-shadow: 24px 32px 80px rgba(92,66,9,0.18);
-    display: block;
-  }
+  .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+  .hero-img-main { width: 100%; max-width: 680px; border-radius: 4px; box-shadow: 24px 32px 80px rgba(92,66,9,0.18); display: block; }
 
   /* ── HERO GALLERY ── */
-  .hero-gallery {
-    width: 100%;
-    max-width: 680px;
-  }
-  .hero-gallery-main {
-    position: relative;
-    width: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 16px 24px 64px rgba(92,66,9,0.18);
-    cursor: zoom-in;
-    background: #f0e8d8;
-  }
-  .hero-gallery-main img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    display: block;
-    transition: opacity 0.25s ease;
-  }
+  .hero-gallery { width: 100%; max-width: 680px; }
+  .hero-gallery-main { position: relative; width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 16px 24px 64px rgba(92,66,9,0.18); cursor: zoom-in; background: #f0e8d8; }
+  .hero-gallery-main img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: opacity 0.25s ease; }
   .hero-gallery-main img.fade { opacity: 0; }
-  .hero-gallery-counter {
-    position: absolute;
-    bottom: 14px; right: 16px;
-    background: rgba(0,0,0,0.38);
-    color: #fff;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    padding: 4px 10px;
-    border-radius: 100px;
-  }
-  .hero-gallery-btn {
-    position: absolute;
-    top: 50%; transform: translateY(-50%);
-    background: rgba(255,255,255,0.82);
-    border: none;
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    font-size: 22px;
-    color: var(--darkbrown);
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 2px 12px rgba(92,66,9,0.15);
-    transition: background 0.2s, transform 0.2s;
-    z-index: 2;
-    line-height: 1;
-  }
+  .hero-gallery-counter { position: absolute; bottom: 14px; right: 16px; background: rgba(0,0,0,0.38); color: #fff; font-size: 11px; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 100px; }
+  .hero-gallery-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.82); border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 22px; color: var(--darkbrown); cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(92,66,9,0.15); transition: background 0.2s, transform 0.2s; z-index: 2; line-height: 1; }
   .hero-gallery-btn:hover { background: white; transform: translateY(-50%) scale(1.08); }
   .hero-gallery-btn.prev { left: 12px; }
   .hero-gallery-btn.next { right: 12px; }
-  .hero-thumbs {
-    display: flex;
-    gap: 8px;
-    margin-top: 10px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding-bottom: 2px;
-  }
+  .hero-thumbs { display: flex; gap: 8px; margin-top: 10px; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 2px; }
   .hero-thumbs::-webkit-scrollbar { display: none; }
-  .hero-thumb {
-    flex-shrink: 0;
-    width: calc((100% - 48px) / 7);
-    min-width: 72px;
-    cursor: pointer;
-    border-radius: 4px;
-    overflow: hidden;
-    border: 2px solid transparent;
-    transition: border-color 0.2s, opacity 0.2s;
-    opacity: 0.65;
-    position: relative;
-  }
+  .hero-thumb { flex-shrink: 0; width: calc((100% - 48px) / 7); min-width: 72px; cursor: pointer; border-radius: 4px; overflow: hidden; border: 2px solid transparent; transition: border-color 0.2s, opacity 0.2s; opacity: 0.65; position: relative; }
   .hero-thumb:hover { opacity: 0.9; }
-  .hero-thumb.active {
-    border-color: var(--accent);
-    opacity: 1;
-  }
-  .hero-thumb img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* ── HERO GALLERY 모바일 최적화 ── */
-  @media (max-width: 900px) {
-    .hero-gallery {
-      max-width: 100%;
-    }
-    .hero-gallery-main {
-      border-radius: 6px;
-    }
-    .hero-gallery-btn {
-      width: 36px; height: 36px;
-      font-size: 20px;
-    }
-    .hero-thumb {
-      min-width: 64px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .hero-gallery-main img {
-      aspect-ratio: 1/1;
-    }
-    .hero-gallery-btn {
-      width: 32px; height: 32px;
-      font-size: 18px;
-    }
-    .hero-gallery-btn.prev { left: 8px; }
-    .hero-gallery-btn.next { right: 8px; }
-    .hero-gallery-counter {
-      font-size: 10px;
-      padding: 3px 8px;
-      bottom: 10px; right: 10px;
-    }
-    .hero-thumbs {
-      gap: 6px;
-      margin-top: 8px;
-    }
-    .hero-thumb {
-      min-width: 56px;
-      border-radius: 3px;
-    }
-    .hero-thumb span {
-      font-size: 9px;
-      padding: 3px 1px 0;
-    }
-  }
-  .hero-tag {
-    position: absolute; bottom: 32px; left: 24px;
-    background: white;
-    padding: 14px 20px;
-    border-radius: 4px;
-    box-shadow: 0 8px 32px rgba(92,66,9,0.12);
-    font-size: 12px; color: var(--muted);
-    letter-spacing: 0.05em;
-  }
+  .hero-thumb.active { border-color: var(--accent); opacity: 1; }
+  .hero-thumb img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+  .hero-tag { position: absolute; bottom: 32px; left: 24px; background: white; padding: 14px 20px; border-radius: 4px; box-shadow: 0 8px 32px rgba(92,66,9,0.12); font-size: 12px; color: var(--muted); letter-spacing: 0.05em; }
   .hero-tag strong { display: block; font-size: 16px; color: var(--darkbrown); font-weight: 600; }
 
-  /* ── SCROLL INDICATOR ── */
-  .scroll-hint {
-    text-align: center; padding: 20px;
-    font-size: 11px; letter-spacing: 0.2em;
-    color: var(--warm); text-transform: uppercase;
+  @media (max-width: 900px) {
+    .hero-gallery { max-width: 100%; }
+    .hero-gallery-main { border-radius: 6px; }
+    .hero-gallery-btn { width: 36px; height: 36px; font-size: 20px; }
+    .hero-thumb { min-width: 64px; }
   }
+  @media (max-width: 480px) {
+    .hero-gallery-main img { aspect-ratio: 1/1; }
+    .hero-gallery-btn { width: 32px; height: 32px; font-size: 18px; }
+    .hero-gallery-btn.prev { left: 8px; }
+    .hero-gallery-btn.next { right: 8px; }
+    .hero-gallery-counter { font-size: 10px; padding: 3px 8px; bottom: 10px; right: 10px; }
+    .hero-thumbs { gap: 6px; margin-top: 8px; }
+    .hero-thumb { min-width: 56px; border-radius: 3px; }
+  }
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-hint { text-align: center; padding: 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--warm); text-transform: uppercase; }
 
   /* ── SECTIONS COMMON ── */
   section { padding: 100px 48px; }
-  .section-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 11px; letter-spacing: 0.3em;
-    color: var(--accent); text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .section-title {
-    font-family: 'Noto Serif KR', serif;
-    font-size: clamp(26px, 3vw, 38px);
-    font-weight: 600; color: var(--darkbrown);
-    margin-bottom: 40px; line-height: 1.4;
-  }
+  .section-label { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.3em; color: var(--accent); text-transform: uppercase; margin-bottom: 16px; }
+  .section-title { font-family: 'Noto Serif KR', serif; font-size: clamp(26px, 3vw, 38px); font-weight: 600; color: var(--darkbrown); margin-bottom: 40px; line-height: 1.4; }
 
-/* 모바일 햄버거 메뉴 버튼 */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 28px;
-  color: var(--darkbrown);
-  cursor: pointer;
-  padding: 8px;
-}
+  /* 모바일 햄버거 메뉴 */
+  .menu-toggle { display: none; background: none; border: none; font-size: 28px; color: var(--darkbrown); cursor: pointer; padding: 8px; }
 
-/* 모바일에서 메뉴 보이게 하기 */
-@media (max-width: 768px) {
-  nav { padding: 14px 24px; }   /* ← 추가된 부분 */
-
-  .menu-toggle {
-    display: block;
+  @media (max-width: 768px) {
+    nav { padding: 14px 24px; }
+    .menu-toggle { display: block; }
+    .lang-switcher { margin-left: 8px; }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(250,246,240,0.98); backdrop-filter: blur(12px); padding: 20px; gap: 20px; text-align: center; border-bottom: 1px solid rgba(139,105,20,0.12); }
+    .nav-links.active { display: flex; }
+    .nav-links a { font-size: 15px; padding: 10px 0; }
   }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(250,246,240,0.98);
-    backdrop-filter: blur(12px);
-    padding: 20px;
-    gap: 20px;
-    text-align: center;
-    border-bottom: 1px solid rgba(139,105,20,0.12);
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links a {
-    font-size: 15px;
-    padding: 10px 0;
-  }
-}
 
   /* ── STORY ── */
-  .story {
-    background: #F2E8E2;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
-  }
-  .story-img {
-    width: 100%; border-radius: 4px;
-    box-shadow: 0 20px 60px rgba(92,66,9,0.14);
-  }
-  .story-text p {
-    font-size: 15px; line-height: 2.0;
-    color: var(--muted); margin-bottom: 20px;
-  }
-  .story-quote {
-    border-left: 3px solid var(--accent);
-    padding: 20px 28px;
-    margin: 32px 0;
-    background: rgba(255,255,255,0.5);
-    font-family: 'Noto Serif KR', serif;
-    font-size: 16px; font-style: italic;
-    color: var(--darkbrown); line-height: 1.9;
-  }
-  .story-highlight {
-    display: inline-block;
-    background: rgba(200,134,10,0.15);
-    padding: 2px 6px;
-    border-radius: 2px;
-    font-weight: 500; color: var(--darkbrown);
-  }
+  .story { background: #F2E8E2; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .story-img { width: 100%; border-radius: 4px; box-shadow: 0 20px 60px rgba(92,66,9,0.14); }
+  .story-text p { font-size: 15px; line-height: 2.0; color: var(--muted); margin-bottom: 20px; }
+  .story-quote { border-left: 3px solid var(--accent); padding: 20px 28px; margin: 32px 0; background: rgba(255,255,255,0.5); font-family: 'Noto Serif KR', serif; font-size: 16px; font-style: italic; color: var(--darkbrown); line-height: 1.9; }
+  .story-highlight { display: inline-block; background: rgba(200,134,10,0.15); padding: 2px 6px; border-radius: 2px; font-weight: 500; color: var(--darkbrown); }
 
   /* ── KEY NUMBERS ── */
-  .numbers {
-    position: relative;
-    background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1800&q=85') center/cover no-repeat;
-    padding: 100px 48px;
-  }
-  .numbers::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: rgba(40, 25, 5, 0.62);
-  }
+  .numbers { position: relative; background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1800&q=85') center/cover no-repeat; padding: 100px 48px; }
+  .numbers::before { content: ''; position: absolute; inset: 0; background: rgba(40, 25, 5, 0.62); }
   .numbers > * { position: relative; z-index: 1; }
   .numbers .section-label { color: rgba(245,236,215,0.65); }
   .numbers .section-title { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
-  .numbers-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 20px; margin-top: 56px;
-  }
-  .number-card {
-    display: flex; flex-direction: column; align-items: center;
-    text-align: center; padding: 20px 16px;
-    background: transparent; border: none;
-    transition: transform 0.3s;
-  }
+  .numbers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 56px; }
+  .number-card { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 20px 16px; background: transparent; border: none; transition: transform 0.3s; }
   .number-card:hover { transform: translateY(-4px); background: transparent; }
-  .number-card:hover .number-circle {
-    border-color: rgba(245,236,215,0.9);
-    box-shadow: 0 0 40px rgba(245,210,150,0.25), inset 0 0 30px rgba(255,255,255,0.06);
-  }
-  .number-circle {
-    width: 164px; height: 164px;
-    border-radius: 50%;
-    border: 1px solid rgba(245,236,215,0.35);
-    outline: 1px solid rgba(245,236,215,0.12);
-    outline-offset: 8px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 22px;
-    background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.13), rgba(255,255,255,0.03));
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.15);
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-  .number-val {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 40px; font-weight: 300;
-    color: #fff; line-height: 1;
-    letter-spacing: -0.02em;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
-  }
+  .number-card:hover .number-circle { border-color: rgba(245,236,215,0.9); box-shadow: 0 0 40px rgba(245,210,150,0.25), inset 0 0 30px rgba(255,255,255,0.06); }
+  .number-circle { width: 164px; height: 164px; border-radius: 50%; border: 1px solid rgba(245,236,215,0.35); outline: 1px solid rgba(245,236,215,0.12); outline-offset: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.13), rgba(255,255,255,0.03)); backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.15); transition: border-color 0.3s, box-shadow 0.3s; }
+  .number-val { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: #fff; line-height: 1; letter-spacing: -0.02em; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
   .number-unit { font-size: 18px; font-weight: 300; opacity: 0.85; }
-  .number-label {
-    font-size: 14px; font-weight: 600;
-    color: #fff; margin-bottom: 10px;
-  }
+  .number-label { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 10px; }
   .number-desc { font-size: 13px; color: rgba(255,255,255,0.78); line-height: 1.75; max-width: 180px; margin: 0 auto; }
 
   /* ── RECIPE ── */
-  .RECIPE {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
-    background: var(--cream);
-  }
+  .RECIPE { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; background: var(--cream); }
   .RECIPE-list { display: flex; flex-direction: column; gap: 0; }
-  .ingredient-item {
-    display: grid; grid-template-columns: 48px 1fr;
-    gap: 20px; align-items: start;
-    padding: 28px 0;
-    border-bottom: 1px solid rgba(139,105,20,0.12);
-  }
-  .ingredient-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 300;
-    color: var(--warm); line-height: 1;
-  }
+  .ingredient-item { display: grid; grid-template-columns: 48px 1fr; gap: 20px; align-items: start; padding: 28px 0; border-bottom: 1px solid rgba(139,105,20,0.12); }
+  .ingredient-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--warm); line-height: 1; }
   .ingredient-name { font-weight: 500; color: var(--darkbrown); margin-bottom: 6px; font-size: 15px; }
   .ingredient-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
-  .ingredient-highlight {
-    display: inline-block; margin-top: 6px;
-    padding: 2px 10px; border-radius: 100px;
-    background: rgba(200,134,10,0.12);
-    font-size: 11px; color: var(--accent); font-weight: 500;
-    letter-spacing: 0.05em;
-  }
-  .RECIPE-img {
-    width: 100%; border-radius: 4px;
-    box-shadow: 0 20px 60px rgba(92,66,9,0.14);
-  }
-  .full-RECIPE {
-    margin-top: 40px; padding: 24px;
-    background: #F2E8E2;
-    border-radius: 4px;
-    font-size: 12px; line-height: 1.9; color: var(--muted);
-  }
+  .ingredient-highlight { display: inline-block; margin-top: 6px; padding: 2px 10px; border-radius: 100px; background: rgba(200,134,10,0.12); font-size: 11px; color: var(--accent); font-weight: 500; letter-spacing: 0.05em; }
+  .RECIPE-img { width: 100%; border-radius: 4px; box-shadow: 0 20px 60px rgba(92,66,9,0.14); }
+  .full-RECIPE { margin-top: 40px; padding: 24px; background: #F2E8E2; border-radius: 4px; font-size: 12px; line-height: 1.9; color: var(--muted); }
   .full-RECIPE strong { color: var(--darkbrown); }
 
   /* ── WHY BODLE ── */
   .why { background: var(--rice); }
-  .why-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 24px; margin-top: 48px;
-  }
-  .why-card {
-    background: var(--cream);
-    padding: 36px 32px;
-    border-radius: 4px;
-    border: 1px solid rgba(139,105,20,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .why-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(92,66,9,0.1);
-  }
-  .why-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 44px; font-weight: 300;
-    color: var(--warm); line-height: 1;
-    margin-bottom: 16px;
-  }
-  .why-card-eyebrow {
-    font-size: 11px; letter-spacing: 0.15em;
-    color: var(--accent); text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .why-card-title {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 17px; font-weight: 600;
-    color: var(--darkbrown); margin-bottom: 16px;
-    line-height: 1.4;
-  }
-  .why-card-text {
-    font-size: 13px; color: var(--muted);
-    line-height: 1.9;
-  }
-  .why-card-text ul { padding-left: 16px; }
-  .why-card-text li { margin-bottom: 8px; }
-  .vegan-cert {
-    display: inline-flex; align-items: center; gap: 6px;
-    margin-top: 12px; padding: 6px 14px;
-    background: rgba(74,103,65,0.1);
-    border: 1px solid rgba(74,103,65,0.3);
-    border-radius: 100px;
-    font-size: 11px; font-weight: 500; color: var(--green);
-  }
-  .stat-pill {
-    display: inline-block; margin-top: 10px;
-    padding: 6px 14px;
-    background: rgba(200,134,10,0.12);
-    border-radius: 100px;
-    font-size: 12px; font-weight: 600; color: var(--accent);
-  }
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  .why-card { background: var(--cream); padding: 36px 32px; border-radius: 4px; border: 1px solid rgba(139,105,20,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+  .why-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(92,66,9,0.1); }
+  .why-num { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: var(--warm); line-height: 1; margin-bottom: 16px; }
+  .why-card-eyebrow { font-size: 11px; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+  .why-card-title { font-family: 'Noto Serif KR', serif; font-size: 17px; font-weight: 600; color: var(--darkbrown); margin-bottom: 16px; line-height: 1.4; }
+  .why-card-text { font-size: 13px; color: var(--muted); line-height: 1.9; }
+  .vegan-cert { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; padding: 6px 14px; background: rgba(74,103,65,0.1); border: 1px solid rgba(74,103,65,0.3); border-radius: 100px; font-size: 11px; font-weight: 500; color: var(--green); }
+  .stat-pill { display: inline-block; margin-top: 10px; padding: 6px 14px; background: rgba(200,134,10,0.12); border-radius: 100px; font-size: 12px; font-weight: 600; color: var(--accent); }
 
   /* ── GIFT ── */
-  .gift {
-    background: #F2E8E2;
-  }
+  .gift { background: #F2E8E2; }
   .gift-header { margin-bottom: 40px; }
-  .gift-body {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
-  }
+  .gift-body { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   .gift .section-label { color: #A8694D; }
   .gift .section-title { color: #5C3520; margin-bottom: 0; }
   .gift-intro { font-size: 15px; line-height: 2.0; color: #7A5240; margin-bottom: 40px; }
   .gift-tags { display: flex; flex-direction: column; gap: 16px; }
-  .gift-tag {
-    padding: 20px 24px;
-    background: rgba(255,255,255,0.7);
-    border: 1px solid rgba(139,105,20,0.15);
-    border-radius: 4px;
-  }
-  .gift-tag-title {
-    font-size: 13px; font-weight: 600;
-    color: var(--darkbrown); margin-bottom: 6px;
-  }
+  .gift-tag { padding: 20px 24px; background: rgba(255,255,255,0.7); border: 1px solid rgba(139,105,20,0.15); border-radius: 4px; }
+  .gift-tag-title { font-size: 13px; font-weight: 600; color: var(--darkbrown); margin-bottom: 6px; }
   .gift-tag-text { font-size: 13px; color: var(--muted); line-height: 1.7; }
   .gift-img { width: 100%; border-radius: 4px; box-shadow: 0 20px 60px rgba(92,66,9,0.14); align-self: center; }
-  .gift-price {
-    display: inline-block; margin-top: 28px;
-    padding: 14px 32px;
-    background: #A8694D;
-    color: var(--rice); font-size: 14px; font-weight: 500;
-    border-radius: 2px; letter-spacing: 0.05em;
-    transition: background 0.3s;
-  }
+  .gift-price { display: inline-block; margin-top: 28px; padding: 14px 32px; background: #A8694D; color: var(--rice); font-size: 14px; font-weight: 500; border-radius: 2px; letter-spacing: 0.05em; transition: background 0.3s; cursor: pointer; }
   .gift-price:hover { background: var(--accent); }
 
   /* ── HOW TO ── */
   .howto { background: var(--cream); }
-  .steps {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 28px; margin-top: 48px;
-  }
-  .step {
-    border-radius: 6px; overflow: hidden;
-    background: white;
-    box-shadow: 0 4px 20px rgba(92,66,9,0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .step:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 40px rgba(92,66,9,0.14);
-  }
-  .step-img-wrap {
-    width: 100%; aspect-ratio: 4/3; overflow: hidden; position: relative;
-  }
-  .step-img-wrap img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-    transition: transform 0.5s ease;
-  }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
+  .step { border-radius: 6px; overflow: hidden; background: white; box-shadow: 0 4px 20px rgba(92,66,9,0.08); transition: transform 0.3s, box-shadow 0.3s; }
+  .step:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(92,66,9,0.14); }
+  .step-img-wrap { width: 100%; aspect-ratio: 4/3; overflow: hidden; position: relative; }
+  .step-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
   .step:hover .step-img-wrap img { transform: scale(1.04); }
-  .step-badge {
-    position: absolute; top: 14px; left: 14px;
-    width: 34px; height: 34px; border-radius: 50%;
-    background: rgba(250,246,240,0.92); backdrop-filter: blur(6px);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 17px; font-weight: 500; color: var(--darkbrown);
-  }
+  .step-badge { position: absolute; top: 14px; left: 14px; width: 34px; height: 34px; border-radius: 50%; background: rgba(250,246,240,0.92); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 500; color: var(--darkbrown); }
   .step-body { padding: 22px 24px 26px; }
   .step-num { display: none; }
-  .step-title {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 17px; font-weight: 600;
-    color: var(--darkbrown); margin-bottom: 8px;
-  }
+  .step-title { font-family: 'Noto Serif KR', serif; font-size: 17px; font-weight: 600; color: var(--darkbrown); margin-bottom: 8px; }
   .step-text { font-size: 13px; color: var(--muted); line-height: 1.85; }
-  .step-note {
-    display: inline-block; margin-top: 12px;
-    padding: 4px 12px; background: var(--rice);
-    border-radius: 100px;
-    font-size: 11px; color: var(--accent); font-weight: 500;
-  }
-  .usage-note {
-    margin-top: 48px; padding: 28px 36px;
-    background: #F2E8E2;
-    border-radius: 4px;
-    border-left: 4px solid var(--accent);
-    display: flex; align-items: center; gap: 32px;
-  }
-  .usage-note-title {
-    font-size: 12px; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--accent);
-    margin-bottom: 12px; font-weight: 500;
-  }
+  .step-note { display: inline-block; margin-top: 12px; padding: 4px 12px; background: var(--rice); border-radius: 100px; font-size: 11px; color: var(--accent); font-weight: 500; }
+  .usage-note { margin-top: 48px; padding: 28px 36px; background: #F2E8E2; border-radius: 4px; border-left: 4px solid var(--accent); display: flex; align-items: center; gap: 32px; }
+  .usage-note-title { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 500; }
   .usage-items { display: flex; gap: 40px; }
   .usage-item { text-align: center; }
-  .usage-item .val {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 36px; font-weight: 300;
-    color: var(--darkbrown); line-height: 1;
-  }
+  .usage-item .val { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--darkbrown); line-height: 1; }
   .usage-item .lbl { font-size: 12px; color: var(--muted); margin-top: 4px; }
 
-  /* ── CLINICAL TEST RESULT ── */
+  /* ── CLINICAL ── */
   .clinical { background: #F7F4EE; }
-
-  /* Immediate Effects 타이틀 블록 */
-  .immediate-header {
-    margin-bottom: 16px;
-    padding-bottom: 16px;
-  }
-  .immediate-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 300;
-    color: var(--darkbrown);
-    margin-bottom: 6px;
-    letter-spacing: 0.01em;
-  }
-  .immediate-sub {
-    font-size: 11px;
-    color: var(--muted);
-    opacity: 0.75;
-    line-height: 1.6;
-  }
-
-  /* 상단: Safety(좌) + 인증서(우) — 라인 정렬 */
-  .clinical-bottom {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: stretch;
-    margin-bottom: 48px;
-  }
-
-  .clinical-safety-left {
-    padding-top: 0;
-  }
-
-  /* 하단: 4개 효능 수치 가로 나열 */
-  .efficacy-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    border: 1px solid rgba(139,105,20,0.13);
-    border-radius: 8px;
-    overflow: hidden;
-    background: white;
-  }
-  .efficacy-card {
-    padding: 36px 28px 32px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border-right: 1px solid rgba(139,105,20,0.1);
-    transition: background 0.2s;
-  }
+  .immediate-header { margin-bottom: 16px; padding-bottom: 16px; }
+  .immediate-title { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--darkbrown); margin-bottom: 6px; letter-spacing: 0.01em; }
+  .immediate-sub { font-size: 11px; color: var(--muted); opacity: 0.75; line-height: 1.6; }
+  .clinical-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: stretch; margin-bottom: 48px; }
+  .clinical-safety-left { padding-top: 0; }
+  .efficacy-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid rgba(139,105,20,0.13); border-radius: 8px; overflow: hidden; background: white; }
+  .efficacy-card { padding: 36px 28px 32px; display: flex; flex-direction: column; align-items: flex-start; border-right: 1px solid rgba(139,105,20,0.1); transition: background 0.2s; }
   .efficacy-card:last-child { border-right: none; }
   .efficacy-card:hover { background: rgba(245,236,215,0.3); }
-  .efficacy-card-icon {
-    width: 48px; height: 48px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(74,103,65,0.28);
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(74,103,65,0.05);
-    margin-bottom: 18px;
-    flex-shrink: 0;
-  }
-  .efficacy-card-icon svg {
-    width: 24px; height: 24px;
-    stroke: var(--green); fill: none;
-    stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;
-  }
-  .efficacy-card-val {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 44px; font-weight: 300;
-    color: var(--darkbrown); line-height: 1;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-  }
+  .efficacy-card-icon { width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid rgba(74,103,65,0.28); display: flex; align-items: center; justify-content: center; background: rgba(74,103,65,0.05); margin-bottom: 18px; flex-shrink: 0; }
+  .efficacy-card-icon svg { width: 24px; height: 24px; stroke: var(--green); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+  .efficacy-card-val { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: var(--darkbrown); line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; }
   .efficacy-card-val .efficacy-unit { font-size: 20px; }
-  .efficacy-card-title {
-    font-size: 13px; font-weight: 700;
-    color: var(--darkbrown); margin-bottom: 5px;
-  }
-  .efficacy-card-desc {
-    font-size: 11.5px; color: var(--muted); line-height: 1.6;
-  }
-
-  /* 인증서 이미지 — 좌측 높이에 맞춤 */
-  .cert-image-wrap {
-    position: sticky;
-    top: 100px;
-    align-self: stretch;
-    display: flex;
-  }
-  .cert-image-frame {
-    width: 100%;
-    background: white;
-    border-radius: 8px;
-    border: 1px solid rgba(74,103,65,0.2);
-    box-shadow: 0 20px 60px rgba(92,66,9,0.12);
-    overflow: hidden;
-  }
-  .cert-image-frame img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: center top;
-  }
-
-  /* 기존 efficacy-list는 숨김 처리 */
+  .efficacy-card-title { font-size: 13px; font-weight: 700; color: var(--darkbrown); margin-bottom: 5px; }
+  .efficacy-card-desc { font-size: 11.5px; color: var(--muted); line-height: 1.6; }
+  .cert-image-wrap { position: sticky; top: 100px; align-self: stretch; display: flex; }
+  .cert-image-frame { width: 100%; background: white; border-radius: 8px; border: 1px solid rgba(74,103,65,0.2); box-shadow: 0 20px 60px rgba(92,66,9,0.12); overflow: hidden; }
+  .cert-image-frame img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center top; }
   .efficacy-list { display: none; }
   .clinical-body { display: none; }
+  .clinical-sub-label { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--darkbrown); margin-bottom: 14px; }
+  .clinical-desc { font-size: 13px; color: var(--muted); line-height: 1.9; margin-bottom: 32px; }
+  .safety-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+  .safety-item { display: flex; align-items: center; gap: 16px; padding: 18px 20px; background: white; border: 1px solid rgba(74,103,65,0.15); border-radius: 4px; flex: 1; min-height: 72px; }
+  .safety-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; padding: 7px 0; width: 88px; text-align: center; border-radius: 100px; white-space: nowrap; flex-shrink: 0; }
+  .safety-badge.certified { background: rgba(74,103,65,0.12); color: var(--green); border: 1px solid rgba(74,103,65,0.3); }
+  .safety-badge.tested { background: rgba(139,105,20,0.08); color: var(--brown); border: 1px solid rgba(139,105,20,0.22); }
+  .safety-title { font-size: 13px; font-weight: 600; color: var(--darkbrown); margin-bottom: 3px; }
+  .safety-text { font-size: 12px; color: var(--muted); }
+  .vegan-logo-wrap { display: flex; align-items: center; gap: 16px; padding: 18px 22px; background: white; border: 1px solid rgba(74,103,65,0.2); border-radius: 4px; }
+  .vegan-logo-wrap img { width: 64px; height: 64px; object-fit: contain; }
+  .vegan-logo-text .vl-title { font-size: 13px; font-weight: 700; color: var(--darkbrown); margin-bottom: 4px; }
+  .vegan-logo-text .vl-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
 
   @media (max-width: 1024px) {
     .efficacy-row { grid-template-columns: repeat(2, 1fr); }
@@ -889,16 +345,8 @@
     .hero-eyebrow { margin-top: 16px; }
   }
   @media (max-width: 480px) {
-    /* 모바일: 아이콘 | 숫자 | (제목+설명) */
     .efficacy-row { grid-template-columns: 1fr; }
-    .efficacy-card {
-      flex-direction: row;
-      align-items: center;
-      gap: 14px;
-      border-right: none;
-      border-bottom: 1px solid rgba(139,105,20,0.1);
-      padding: 20px 16px;
-    }
+    .efficacy-card { flex-direction: row; align-items: center; gap: 14px; border-right: none; border-bottom: 1px solid rgba(139,105,20,0.1); padding: 20px 16px; }
     .efficacy-card:last-child { border-bottom: none; }
     .efficacy-card-icon { margin-bottom: 0; flex-shrink: 0; width: 40px; height: 40px; }
     .efficacy-card-icon svg { width: 20px; height: 20px; }
@@ -908,319 +356,72 @@
     .efficacy-card-title { font-size: 13px; margin-bottom: 3px; white-space: normal; }
     .efficacy-card-desc { font-size: 11px; line-height: 1.5; white-space: normal; }
   }
-  .clinical-sub-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px; font-weight: 300;
-    color: var(--darkbrown);
-    margin-bottom: 14px;
-  }
-  .clinical-desc {
-    font-size: 13px; color: var(--muted);
-    line-height: 1.9; margin-bottom: 32px;
-  }
-  .clinical-divider { background: rgba(139,105,20,0.12); }
-  .clinical-note {
-    font-size: 13px; color: var(--muted);
-    line-height: 1.9; margin-bottom: 6px;
-  }
-  .clinical-label-left {
-    font-size: 10px; letter-spacing: 0.2em;
-    color: var(--green); text-transform: uppercase;
-    font-weight: 700; margin-bottom: 28px;
-  }
-
-  /* ── Efficacy list (left) ── */
-  .efficacy-list { display: flex; flex-direction: column; gap: 0; }
-  .efficacy-item {
-    display: flex; align-items: center; gap: 24px;
-    padding: 22px 0;
-    border-bottom: 1px solid rgba(139,105,20,0.1);
-  }
-  .efficacy-item:last-child { border-bottom: none; }
-  .efficacy-icon-wrap {
-    width: 72px; height: 72px; flex-shrink: 0;
-    border-radius: 50%;
-    border: 1.5px solid rgba(74,103,65,0.28);
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(74,103,65,0.05);
-  }
-  .efficacy-icon-wrap svg {
-    width: 34px; height: 34px;
-    stroke: var(--green); fill: none;
-    stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;
-  }
-  .efficacy-text { flex: 1; }
-  .efficacy-val {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px; font-weight: 300;
-    color: var(--darkbrown); line-height: 1;
-    margin-bottom: 4px;
-    letter-spacing: -0.02em;
-  }
-  .efficacy-unit { font-size: 20px; }
-  .efficacy-title { font-size: 13px; font-weight: 700; color: var(--darkbrown); margin-bottom: 3px; }
-  .efficacy-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
-
-  /* ── Safety (right) ── */
-  .safety-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 28px;
-  }
-  .safety-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 18px 20px;
-    background: white;
-    border: 1px solid rgba(74,103,65,0.15);
-    border-radius: 4px;
-    flex: 1;
-    min-height: 72px;
-  }
-  .safety-badge {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
-    padding: 7px 0;
-    width: 88px;
-    text-align: center;
-    border-radius: 100px; white-space: nowrap; flex-shrink: 0;
-  }
-  .safety-badge.certified {
-    background: rgba(74,103,65,0.12); color: var(--green);
-    border: 1px solid rgba(74,103,65,0.3);
-  }
-  .safety-badge.tested {
-    background: rgba(139,105,20,0.08); color: var(--brown);
-    border: 1px solid rgba(139,105,20,0.22);
-  }
-  .safety-title { font-size: 13px; font-weight: 600; color: var(--darkbrown); margin-bottom: 3px; }
-  .safety-text { font-size: 12px; color: var(--muted); }
-
-  .vegan-logo-wrap {
-    display: flex; align-items: center; gap: 16px;
-    padding: 18px 22px;
-    background: white;
-    border: 1px solid rgba(74,103,65,0.2);
-    border-radius: 4px;
-  }
-  .vegan-logo-wrap img {
-    width: 64px; height: 64px; object-fit: contain;
-  }
-  .vegan-logo-text .vl-title {
-    font-size: 13px; font-weight: 700; color: var(--darkbrown); margin-bottom: 4px;
-  }
-  .vegan-logo-text .vl-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
-
-
-  @media (max-width: 480px) {
-    .efficacy-val { font-size: 34px; }
-    .efficacy-icon-wrap { width: 58px; height: 58px; }
-    .efficacy-icon-wrap svg { width: 26px; height: 26px; }
-  }
 
   /* ── COMPARISON ── */
   .comparison { background: var(--rice); }
   .compare-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
-  .compare-table th {
-    padding: 20px 28px;
-    font-size: 13px; font-weight: 500; letter-spacing: 0.05em;
-    text-align: left;
-  }
-  .compare-table th:first-child {
-    color: var(--muted); background: transparent;
-  }
-  .compare-table th.col-normal {
-    background: rgba(139,105,20,0.08);
-    color: var(--muted);
-  }
-  .compare-table th.col-bodle {
-    background: #A8694D;
-    color: var(--rice);
-  }
-  .compare-table td {
-    padding: 20px 28px;
-    font-size: 14px; border-top: 1px solid rgba(139,105,20,0.1);
-    vertical-align: top; line-height: 1.7;
-  }
-  .compare-table td:first-child {
-    font-weight: 500; color: var(--muted); font-size: 12px;
-    letter-spacing: 0.05em; text-transform: uppercase;
-  }
-  .compare-table td.col-normal {
-    color: var(--muted); background: rgba(139,105,20,0.04);
-  }
-  .compare-table td.col-bodle {
-    color: var(--darkbrown); font-weight: 500;
-    background: rgba(92,66,9,0.04);
-  }
+  .compare-table th { padding: 20px 28px; font-size: 13px; font-weight: 500; letter-spacing: 0.05em; text-align: left; }
+  .compare-table th:first-child { color: var(--muted); background: transparent; }
+  .compare-table th.col-normal { background: rgba(139,105,20,0.08); color: var(--muted); }
+  .compare-table th.col-bodle { background: #A8694D; color: var(--rice); }
+  .compare-table td { padding: 20px 28px; font-size: 14px; border-top: 1px solid rgba(139,105,20,0.1); vertical-align: top; line-height: 1.7; }
+  .compare-table td:first-child { font-weight: 500; color: var(--muted); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .compare-table td.col-normal { color: var(--muted); background: rgba(139,105,20,0.04); }
+  .compare-table td.col-bodle { color: var(--darkbrown); font-weight: 500; background: rgba(92,66,9,0.04); }
   .compare-table tr:hover td { background: rgba(200,134,10,0.04); }
 
   /* ── PRODUCT INFO ── */
   .product-info { background: var(--cream); }
-  .info-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; margin-top: 48px; align-items: start;
-  }
-  .info-photos {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-  .info-photo { width: 100%; border-radius: 4px; display: block; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 48px; align-items: start; }
+  .info-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .info-table { width: 100%; border-collapse: collapse; }
   .info-table tr { border-bottom: 1px solid rgba(139,105,20,0.1); }
   .info-table td { padding: 14px 0; font-size: 14px; vertical-align: top; }
-  .info-table td:first-child {
-    font-weight: 500; color: var(--muted); width: 120px;
-    font-size: 13px;
-  }
+  .info-table td:first-child { font-weight: 500; color: var(--muted); width: 120px; font-size: 13px; }
   .info-table td:last-child { color: var(--text); line-height: 1.7; }
-  .info-note {
-    margin-top: 24px; font-size: 12px;
-    color: var(--muted); line-height: 1.8;
-  }
 
   /* ── PRICING ── */
   .pricing { background: linear-gradient(to bottom, #E8DDD4 60%, #D4C4B5 100%); }
-  .pricing-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 24px; margin-top: 48px;
-  }
-  .price-card {
-    background: var(--cream);
-    padding: 44px 36px;
-    border-radius: 4px;
-    border: 1px solid rgba(139,105,20,0.12);
-    position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .price-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 60px rgba(92,66,9,0.12);
-  }
-  .price-card.best {
-    background: #3D2B1F;
-    border-color: transparent;
-  }
-  .best-badge {
-    position: absolute; top: -12px; left: 50%;
-    transform: translateX(-50%);
-    background: var(--accent);
-    color: white; font-size: 11px;
-    font-weight: 700; letter-spacing: 0.1em;
-    padding: 4px 16px; border-radius: 100px;
-    text-transform: uppercase;
-  }
-  .price-card-type {
-    font-size: 11px; letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted); margin-bottom: 8px;
-  }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  .price-card { background: var(--cream); padding: 44px 36px; border-radius: 4px; border: 1px solid rgba(139,105,20,0.12); position: relative; transition: transform 0.3s, box-shadow 0.3s; }
+  .price-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(92,66,9,0.12); }
+  .price-card.best { background: #3D2B1F; border-color: transparent; }
+  .best-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; padding: 4px 16px; border-radius: 100px; text-transform: uppercase; }
+  .price-card-type { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
   .price-card.best .price-card-type { color: var(--warm); }
-  .price-card-name {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 22px; font-weight: 600;
-    color: var(--darkbrown); margin-bottom: 20px;
-  }
+  .price-card-name { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 600; color: var(--darkbrown); margin-bottom: 20px; }
   .price-card.best .price-card-name { color: var(--rice); }
-  .price-amount {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 48px; font-weight: 300;
-    color: var(--accent); line-height: 1;
-  }
+  .price-amount { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--accent); line-height: 1; }
   .price-card.best .price-amount { color: var(--warm); }
   .price-currency { font-size: 20px; vertical-align: super; }
-  .price-desc {
-    font-size: 13px; color: var(--muted);
-    margin: 8px 0 24px;
-  }
+  .price-desc { font-size: 13px; color: var(--muted); margin: 8px 0 24px; }
   .price-card.best .price-desc { color: rgba(245,236,215,0.6); }
   .price-features { list-style: none; margin-bottom: 32px; }
-  .price-features li {
-    font-size: 13px; color: var(--muted);
-    padding: 7px 0;
-    border-bottom: 1px solid rgba(139,105,20,0.08);
-    display: flex; gap: 8px; align-items: center;
-  }
-  .price-card.best .price-features li {
-    color: rgba(245,236,215,0.7);
-    border-bottom-color: rgba(255,255,255,0.06);
-  }
-  .price-features li::before {
-    content: '—'; color: var(--warm); flex-shrink: 0;
-  }
-  .btn-buy {
-    display: block; text-align: center;
-    padding: 14px; border-radius: 2px;
-    font-size: 13px; letter-spacing: 0.08em;
-    text-transform: uppercase; text-decoration: none;
-    border: 1px solid var(--darkbrown);
-    color: var(--darkbrown);
-    transition: background 0.3s, color 0.3s;
-  }
+  .price-features li { font-size: 13px; color: var(--muted); padding: 7px 0; border-bottom: 1px solid rgba(139,105,20,0.08); display: flex; gap: 8px; align-items: center; }
+  .price-card.best .price-features li { color: rgba(245,236,215,0.7); border-bottom-color: rgba(255,255,255,0.06); }
+  .price-features li::before { content: '—'; color: var(--warm); flex-shrink: 0; }
+  .btn-buy { display: block; text-align: center; padding: 14px; border-radius: 2px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--darkbrown); color: var(--darkbrown); transition: background 0.3s, color 0.3s; }
   .btn-buy:hover { background: var(--darkbrown); color: var(--rice); }
-  .price-card.best .btn-buy {
-    background: white; border-color: white;
-    color: var(--darkbrown);
-  }
+  .price-card.best .btn-buy { background: white; border-color: white; color: var(--darkbrown); }
   .price-card.best .btn-buy:hover { background: var(--rice); color: var(--darkbrown); border-color: var(--rice); }
 
   /* ── LETTER ── */
-  .letter {
-    background: #F2E8E2;
-    text-align: center; padding: 100px 48px;
-  }
-  .letter-text {
-    max-width: 600px; margin: 0 auto;
-    font-family: 'Noto Serif KR', serif;
-    font-size: 20px; font-weight: 400; line-height: 2.0;
-    color: #5C3520; font-style: italic;
-  }
-  .letter-sig {
-    margin-top: 40px;
-    font-size: 13px; letter-spacing: 0.15em;
-    color: #A8694D; text-transform: uppercase;
-  }
+  .letter { background: #F2E8E2; text-align: center; padding: 100px 48px; }
+  .letter-text { max-width: 600px; margin: 0 auto; font-family: 'Noto Serif KR', serif; font-size: 20px; font-weight: 400; line-height: 2.0; color: #5C3520; font-style: italic; }
+  .letter-sig { margin-top: 40px; font-size: 13px; letter-spacing: 0.15em; color: #A8694D; text-transform: uppercase; }
 
   /* ── FOOTER ── */
-  footer {
-    background: var(--text);
-    padding: 60px 48px;
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: 48px;
-  }
-  .footer-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; color: var(--rice); margin-bottom: 16px;
-  }
+  footer { background: var(--text); padding: 60px 48px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--rice); margin-bottom: 16px; }
   .footer-tagline { font-size: 13px; color: rgba(245,236,215,0.5); line-height: 1.8; }
-  .footer-col-title {
-    font-size: 11px; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--warm);
-    margin-bottom: 16px; font-weight: 500;
-  }
+  .footer-col-title { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm); margin-bottom: 16px; font-weight: 500; }
   .footer-col-list { list-style: none; }
-  .footer-col-list li {
-    font-size: 13px; color: rgba(245,236,215,0.5);
-    padding: 5px 0;
-  }
-  .footer-copy {
-    grid-column: 1/-1;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding-top: 32px;
-    font-size: 12px; color: rgba(245,236,215,0.3);
-    display: flex; justify-content: space-between;
-  }
+  .footer-col-list li { font-size: 13px; color: rgba(245,236,215,0.5); padding: 5px 0; }
+  .footer-copy { grid-column: 1/-1; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 32px; font-size: 12px; color: rgba(245,236,215,0.3); display: flex; justify-content: space-between; }
 
   /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .fade-up {
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards;
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { opacity: 0; animation: fadeUp 0.8s ease forwards; }
   .fade-up.delay-1 { animation-delay: 0.1s; }
   .fade-up.delay-2 { animation-delay: 0.25s; }
   .fade-up.delay-3 { animation-delay: 0.4s; }
@@ -1231,13 +432,7 @@
     nav { padding: 14px 24px; }
     .nav-links { display: none; }
     section { padding: 70px 24px; }
-    .hero {
-      display: flex !important;
-      flex-direction: column !important;
-      padding: 80px 20px 32px !important;
-      min-height: unset !important;
-      gap: 20px !important;
-    }
+    .hero { display: flex !important; flex-direction: column !important; padding: 80px 20px 32px !important; min-height: unset !important; gap: 20px !important; }
     .hero-text { padding-right: 0; margin-bottom: 0; }
     .hero-subtitle { margin-bottom: 20px; }
     .hero-badges { margin-bottom: 20px; }
@@ -1253,28 +448,10 @@
     .pricing-grid { grid-template-columns: 1fr; }
     footer { grid-template-columns: 1fr; }
     .footer-copy { flex-direction: column; gap: 8px; }
-    /* 태블릿/모바일: 오버레이 → 이미지 아래 텍스트로 */
-    .hero-visual {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .hero-tag {
-      position: static;
-      display: block;
-      box-shadow: none;
-      background: rgba(245,236,215,0.5);
-      border-radius: 4px;
-      margin-top: 12px;
-      padding: 12px 16px;
-      width: 100%;
-    }
-    .recipe-img-wrap {
-      position: static !important;
-      display: block !important;
-    }
-    .recipe-overlay {
-      display: none !important;
-    }
+    .hero-visual { flex-direction: column; align-items: flex-start; }
+    .hero-tag { position: static; display: block; box-shadow: none; background: rgba(245,236,215,0.5); border-radius: 4px; margin-top: 12px; padding: 12px 16px; width: 100%; }
+    .recipe-img-wrap { position: static !important; display: block !important; }
+    .recipe-overlay { display: none !important; }
   }
 
   @media (max-width: 480px) {
@@ -1282,15 +459,7 @@
     html, body { overflow-x: hidden; width: 100%; }
     section { padding: 50px 20px; }
     nav { padding: 12px 20px; }
-
-    /* Hero - flex 1컬럼으로 완전 재정의 */
-    section.hero {
-      display: flex !important;
-      flex-direction: column !important;
-      padding: 70px 20px 24px !important;
-      gap: 20px !important;
-      min-height: unset !important;
-    }
+    section.hero { display: flex !important; flex-direction: column !important; padding: 70px 20px 24px !important; gap: 20px !important; min-height: unset !important; }
     .hero-text { padding-right: 0; }
     .hero-visual { width: 100%; }
     .hero-title { font-size: 34px; margin-bottom: 12px; }
@@ -1305,8 +474,6 @@
     .hero-gallery-btn.next { right: 8px; }
     .hero-thumbs { gap: 6px; margin-top: 8px; }
     .hero-thumb { min-width: 52px; }
-
-    /* Numbers */
     .numbers { padding: 60px 20px; }
     .numbers-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 36px; }
     .number-card { padding: 12px 8px; }
@@ -1315,32 +482,18 @@
     .number-unit { font-size: 13px; }
     .number-label { font-size: 12px; margin-bottom: 6px; }
     .number-desc { font-size: 11px; max-width: 100%; }
-
-    /* Story */
     .story { gap: 32px; }
-
-    /* RECIPE */
     .RECIPE { gap: 32px; }
     .full-RECIPE { font-size: 11px; }
-
-    /* Why */
     .why-grid { gap: 16px; }
     .why-card { padding: 24px 20px; }
-
-    /* Gift */
     .gift-body { gap: 32px; }
     .gift-header { margin-bottom: 24px; }
-
-    /* Pricing */
     .steps { gap: 16px; }
     .pricing-grid { gap: 16px; }
     .price-card { padding: 32px 24px; }
-
-    /* Footer */
     footer { padding: 48px 20px; gap: 32px; }
     .footer-copy { font-size: 11px; }
-
-    /* Typography */
     .section-title { font-size: 28px; }
   }
 </style>
@@ -1353,33 +506,38 @@
     <span class="kr">보들</span>
     <span class="en">bodle</span>
   </a>
-  <button class="menu-toggle" aria-label="메뉴 열기">☰</button>
-  <ul class="nav-links">
-    <li><a href="#story">Story</a></li>
+  <button class="menu-toggle" id="menuToggleBtn" aria-label="메뉴 열기">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#story" data-i18n="nav-story">Story</a></li>
     <li><a href="#RECIPE">RECIPE</a></li>
     <li><a href="#why">Why Bodle</a></li>
-    <li><a href="#howto">How to</a></li>
+    <li><a href="#howto" data-i18n="nav-howto">How to</a></li>
     <li><a href="#clinical">Effects</a></li>
     <li><a href="#pricing">Shop</a></li>
   </ul>
+  <!-- 언어 전환 버튼 -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="ko">KO</button>
+    <span class="lang-divider">|</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <p class="hero-eyebrow fade-up">Rice Latte Wash</p>
-    <h1 class="hero-title fade-up delay-1">보들<br>쌀라떼 워시</h1>
-    <p class="hero-subtitle fade-up delay-2">엄마의 갈라진 손끝에서 시작해,<br>온 가족의 피부를 보듬는 55%의 진심</p>
+    <h1 class="hero-title fade-up delay-1" data-i18n="hero-title">보들<br>쌀라떼 워시</h1>
+    <p class="hero-subtitle fade-up delay-2" data-i18n="hero-subtitle">엄마의 갈라진 손끝에서 시작해,<br>온 가족의 피부를 보듬는 55%의 진심</p>
     <div class="hero-badges fade-up delay-2">
-      <span class="badg	e">55% 쌀가루</span>
-      <span class="badge">pH 5.5 미세산성</span>
-      <span class="badge vegan">🌿 100% 비건 인증</span>
+      <span class="badge" data-i18n="badge-rice">55% 쌀가루</span>
+      <span class="badge" data-i18n="badge-ph">pH 5.5 미세산성</span>
+      <span class="badge vegan" data-i18n="badge-vegan">🌿 100% 비건 인증</span>
     </div>
-    <a href="#pricing" class="btn-primary fade-up delay-3">제품 구매하기</a>
+    <a href="#pricing" class="btn-primary fade-up delay-3" data-i18n="hero-cta">제품 구매하기</a>
   </div>
   <div class="hero-visual fade-up delay-2">
     <div class="hero-gallery">
-      <!-- 메인 이미지 -->
       <div class="hero-gallery-main" id="heroMainWrap">
         <img id="heroMainImg"
           src="https://drive.google.com/thumbnail?sz=w1200&id=1VCC8pY9ha_DxgP9FCi1rSXyiidPw8nGQ"
@@ -1388,35 +546,27 @@
         <button class="hero-gallery-btn next" id="heroGalleryNext">&#8250;</button>
         <div class="hero-gallery-counter" id="heroCounter">1 / 7</div>
       </div>
-      <!-- 썸네일 -->
       <div class="hero-thumbs" id="heroThumbs">
-        <div class="hero-thumb active" data-idx="0" data-src="https://drive.google.com/thumbnail?sz=w1200&id=1VCC8pY9ha_DxgP9FCi1rSXyiidPw8nGQ" data-label="제품 전면">
+        <div class="hero-thumb active" data-idx="0" data-src="https://drive.google.com/thumbnail?sz=w1200&id=1VCC8pY9ha_DxgP9FCi1rSXyiidPw8nGQ">
           <img src="https://drive.google.com/thumbnail?sz=w400&id=1VCC8pY9ha_DxgP9FCi1rSXyiidPw8nGQ" alt="">
-          
         </div>
-        <div class="hero-thumb" data-idx="1" data-src="https://drive.google.com/thumbnail?sz=w1200&id=1IucRWeh_RPSTXPZWoDaqpNpWjTl4LdLm" data-label="원터치 캡">
+        <div class="hero-thumb" data-idx="1" data-src="https://drive.google.com/thumbnail?sz=w1200&id=1IucRWeh_RPSTXPZWoDaqpNpWjTl4LdLm">
           <img src="https://drive.google.com/thumbnail?sz=w400&id=1IucRWeh_RPSTXPZWoDaqpNpWjTl4LdLm" alt="">
-          
         </div>
-        <div class="hero-thumb" data-idx="2" data-src="https://drive.google.com/thumbnail?sz=w1200&id=1ln9_H3IBB3_9rwvHCYqQLisVSDShoT0v" data-label="1+1 세트">
+        <div class="hero-thumb" data-idx="2" data-src="https://drive.google.com/thumbnail?sz=w1200&id=1ln9_H3IBB3_9rwvHCYqQLisVSDShoT0v">
           <img src="https://drive.google.com/thumbnail?sz=w400&id=1ln9_H3IBB3_9rwvHCYqQLisVSDShoT0v" alt="">
-          
         </div>
-        <div class="hero-thumb" data-idx="3" data-src="https://drive.google.com/thumbnail?sz=w1200&id=1CeASBx0P36Ddi7xPGlS61g71u7ZI0ldb" data-label="뚜껑 오픈">
+        <div class="hero-thumb" data-idx="3" data-src="https://drive.google.com/thumbnail?sz=w1200&id=1CeASBx0P36Ddi7xPGlS61g71u7ZI0ldb">
           <img src="https://drive.google.com/thumbnail?sz=w400&id=1CeASBx0P36Ddi7xPGlS61g71u7ZI0ldb" alt="">
-          
         </div>
-        <div class="hero-thumb" data-idx="4" data-src="https://drive.google.com/thumbnail?sz=w1200&id=15ykDfpZZ3ZqtcqnTUgg5DOtWxDz3CDOV" data-label="사용감">
+        <div class="hero-thumb" data-idx="4" data-src="https://drive.google.com/thumbnail?sz=w1200&id=15ykDfpZZ3ZqtcqnTUgg5DOtWxDz3CDOV">
           <img src="https://drive.google.com/thumbnail?sz=w400&id=15ykDfpZZ3ZqtcqnTUgg5DOtWxDz3CDOV" alt="">
-          
         </div>
-        <div class="hero-thumb" data-idx="5" data-src="https://drive.google.com/thumbnail?sz=w1200&id=1RjT1em9oalrx5_1xtz2e51fqsUDKLoDj" data-label="욕실 배치">
+        <div class="hero-thumb" data-idx="5" data-src="https://drive.google.com/thumbnail?sz=w1200&id=1RjT1em9oalrx5_1xtz2e51fqsUDKLoDj">
           <img src="https://drive.google.com/thumbnail?sz=w400&id=1RjT1em9oalrx5_1xtz2e51fqsUDKLoDj" alt="">
-          
         </div>
-        <div class="hero-thumb" data-idx="6" data-src="https://drive.google.com/thumbnail?sz=w1200&id=10mdNfnnOQQ5tvyCEEj1J8k6sLaw4FX9g" data-label="쌀가루 클로즈업">
+        <div class="hero-thumb" data-idx="6" data-src="https://drive.google.com/thumbnail?sz=w1200&id=10mdNfnnOQQ5tvyCEEj1J8k6sLaw4FX9g">
           <img src="https://drive.google.com/thumbnail?sz=w400&id=10mdNfnnOQQ5tvyCEEj1J8k6sLaw4FX9g" alt="">
-          
         </div>
       </div>
     </div>
@@ -1426,44 +576,44 @@
 <!-- STORY -->
 <section class="story" id="story">
   <img class="story-img"
-    src="https://drive.google.com/thumbnail?sz=w1200&id=1jQz-_2ZUs-L7v5lDiFKEo6VxJw7MkAd-" (이미지2번)
+    src="https://drive.google.com/thumbnail?sz=w1200&id=1jQz-_2ZUs-L7v5lDiFKEo6VxJw7MkAd-"
     alt="엄마와 아이의 손">
   <div class="story-text">
     <p class="section-label">Our Story</p>
-    <h2 class="section-title">비누로 씻을 때마다<br>손끝이 갈라진다는<br>엄마의 말 한마디에서<br>시작되었습니다.</h2>
-    <p>사람들은 하루 평균 8번 손을 씻는다고 합니다. 꼭 필요한 습관이지만, 물 마를 날 없는 엄마의 일상에서는 이 '꼭 필요한 8번'이 피부에 적지 않은 부담이 됩니다. 세정력이 강한 비누와 주방 세제는 오염뿐만 아니라 소중한 피부 보호막까지 앗아가기 때문입니다.</p>
-    <p style="margin-top:16px;">손끝은 갈라지고, 손톱은 깨지고, 손등은 어느새 거칠어집니다. 각질이 벗겨지는 <span class="story-highlight">손끝 습진</span>, 손톱에 세로 줄이 생기는 <span class="story-highlight">조갑 세로홈</span>—혹시 당신도 겪고 계신가요?</p>
-    <div class="story-quote">
+    <h2 class="section-title" data-i18n="story-title">비누로 씻을 때마다<br>손끝이 갈라진다는<br>엄마의 말 한마디에서<br>시작되었습니다.</h2>
+    <p data-i18n="story-p1">사람들은 하루 평균 8번 손을 씻는다고 합니다. 꼭 필요한 습관이지만, 물 마를 날 없는 엄마의 일상에서는 이 '꼭 필요한 8번'이 피부에 적지 않은 부담이 됩니다. 세정력이 강한 비누와 주방 세제는 오염뿐만 아니라 소중한 피부 보호막까지 앗아가기 때문입니다.</p>
+    <p style="margin-top:16px;" data-i18n="story-p2">손끝은 갈라지고, 손톱은 깨지고, 손등은 어느새 거칠어집니다. 각질이 벗겨지는 <span class="story-highlight">손끝 습진</span>, 손톱에 세로 줄이 생기는 <span class="story-highlight">조갑 세로홈</span>—혹시 당신도 겪고 계신가요?</p>
+    <div class="story-quote" data-i18n="story-quote">
       "가장 깨끗하게 씻으면서도,<br>갈라진 손끝에 위로가 될 수는 없을까?"
     </div>
-    <p>그 해답은 예로부터 순한 세안법으로 사랑받은 <strong>'쌀물 세안'</strong>에 있었습니다. 껍데기만 흉내 낸 추출물이 아니라, <strong>진짜 국내산 유기농 쌀가루를 55%</strong>나 쏟아부었습니다. 잦은 세정에도 자극 없이, 거칠어진 엄마의 손끝이 다시 '보들보들'해지길 바라는 진심을 담았습니다.</p>
+    <p data-i18n="story-p3">그 해답은 예로부터 순한 세안법으로 사랑받은 <strong>'쌀물 세안'</strong>에 있었습니다. 껍데기만 흉내 낸 추출물이 아니라, <strong>진짜 국내산 유기농 쌀가루를 55%</strong>나 쏟아부었습니다. 잦은 세정에도 자극 없이, 거칠어진 엄마의 손끝이 다시 '보들보들'해지길 바라는 진심을 담았습니다.</p>
   </div>
 </section>
 
 <!-- KEY NUMBERS -->
 <section class="numbers">
   <p class="section-label">Key Numbers</p>
-  <h2 class="section-title">숫자로 보는 진심</h2>
+  <h2 class="section-title" data-i18n="numbers-title">숫자로 보는 진심</h2>
   <div class="numbers-grid">
     <div class="number-card">
       <div class="number-circle"><div class="number-val">55<span class="number-unit">%</span></div></div>
-      <div class="number-label">유기농 쌀가루</div>
-      <div class="number-desc">정제수 대신 유기농 쌀가루 55%를 채워 씻는 단계부터 자극을 줄였습니다.</div>
+      <div class="number-label" data-i18n="num1-label">유기농 쌀가루</div>
+      <div class="number-desc" data-i18n="num1-desc">정제수 대신 유기농 쌀가루 55%를 채워 씻는 단계부터 자극을 줄였습니다.</div>
     </div>
     <div class="number-card">
       <div class="number-circle"><div class="number-val">pH<span class="number-unit" style="font-size:24px"> 5.5</span></div></div>
-      <div class="number-label">미세산성</div>
-      <div class="number-desc">피부 보호막을 지켜주는 순한 산도로 영유아부터 성인까지 안심하고 사용합니다.</div>
+      <div class="number-label" data-i18n="num2-label">미세산성</div>
+      <div class="number-desc" data-i18n="num2-desc">피부 보호막을 지켜주는 순한 산도로 영유아부터 성인까지 안심하고 사용합니다.</div>
     </div>
     <div class="number-card">
       <div class="number-circle"><div class="number-val">94.7<span class="number-unit">%</span></div></div>
-      <div class="number-label">자외선 차단제 세정력</div>
-      <div class="number-desc">자연 유래 계면활성제임에도 워터프루프 선크림까지 말끔하게 제거합니다.</div>
+      <div class="number-label" data-i18n="num3-label">자외선 차단제 세정력</div>
+      <div class="number-desc" data-i18n="num3-desc">자연 유래 계면활성제임에도 워터프루프 선크림까지 말끔하게 제거합니다.</div>
     </div>
     <div class="number-card">
       <div class="number-circle"><div class="number-val">0<span class="number-unit">%</span></div></div>
-      <div class="number-label">인공 향료</div>
-      <div class="number-desc">진짜 쌀가루의 고소하고 포근한 천연향만을 담았습니다.</div>
+      <div class="number-label" data-i18n="num4-label">인공 향료</div>
+      <div class="number-desc" data-i18n="num4-desc">진짜 쌀가루의 고소하고 포근한 천연향만을 담았습니다.</div>
     </div>
   </div>
 </section>
@@ -1472,77 +622,77 @@
 <section class="RECIPE" id="RECIPE">
   <div>
     <p class="section-label">Organic Harvest · Korea</p>
-    <h2 class="section-title">진짜 쌀가루를<br>55% 담았습니다</h2>
+    <h2 class="section-title" data-i18n="recipe-title">진짜 쌀가루를<br>55% 담았습니다</h2>
     <div class="RECIPE-list">
       <div class="ingredient-item">
         <div class="ingredient-num">01</div>
         <div>
-          <div class="ingredient-name">유기농 쌀가루 55%</div>
-          <div class="ingredient-desc">국내산 유기농 쌀을 곱게 빻아 정제수 대신 채웠습니다.</div>
+          <div class="ingredient-name" data-i18n="ing1-name">유기농 쌀가루 55%</div>
+          <div class="ingredient-desc" data-i18n="ing1-desc">국내산 유기농 쌀을 곱게 빻아 정제수 대신 채웠습니다.</div>
           <span class="ingredient-highlight">Main · 55%</span>
         </div>
       </div>
       <div class="ingredient-item">
         <div class="ingredient-num">02</div>
         <div>
-          <div class="ingredient-name">자연 유래 계면활성제</div>
-          <div class="ingredient-desc">영유아부터 임산부까지 안심하고 사용하는 순한 성분. 100% 비건 인증.</div>
-          <span class="ingredient-highlight">비건 인증</span>
+          <div class="ingredient-name" data-i18n="ing2-name">자연 유래 계면활성제</div>
+          <div class="ingredient-desc" data-i18n="ing2-desc">영유아부터 임산부까지 안심하고 사용하는 순한 성분. 100% 비건 인증.</div>
+          <span class="ingredient-highlight" data-i18n="ing2-hl">비건 인증</span>
         </div>
       </div>
       <div class="ingredient-item">
         <div class="ingredient-num">03</div>
         <div>
-          <div class="ingredient-name">파파인·브로멜라인·리파아제 3중 효소</div>
-          <div class="ingredient-desc">자연 유래 효소가 묵은 각질을 부드럽게 선택적으로 케어합니다.</div>
+          <div class="ingredient-name" data-i18n="ing3-name">파파인·브로멜라인·리파아제 3중 효소</div>
+          <div class="ingredient-desc" data-i18n="ing3-desc">자연 유래 효소가 묵은 각질을 부드럽게 선택적으로 케어합니다.</div>
           <span class="ingredient-highlight">Enzyme Complex</span>
         </div>
       </div>
       <div class="ingredient-item">
         <div class="ingredient-num">04</div>
         <div>
-          <div class="ingredient-name">알란토인</div>
-          <div class="ingredient-desc">민감해진 피부를 진정시키고 보호합니다.</div>
-          <span class="ingredient-highlight">진정</span>
+          <div class="ingredient-name">Allantoin</div>
+          <div class="ingredient-desc" data-i18n="ing4-desc">민감해진 피부를 진정시키고 보호합니다.</div>
+          <span class="ingredient-highlight" data-i18n="ing4-hl">진정</span>
         </div>
       </div>
     </div>
-    <div class="full-RECIPE">
+    <div class="full-RECIPE" data-i18n="full-ingredients">
       <strong>전성분</strong><br>
       쌀가루(55%), 소듐코코일이세티오네이트, 소듐라우로일글루타메이트(자연유래), 옥수수전분, 다이글리세린, 알란토인, 파파인, 브로멜라인, 리파아제, 말토덱스트린, 정제수, 부틸렌글라이콜, 1,2-헥산다이올, AG8 Revital™ (8가지 유해성분 무첨가)
     </div>
   </div>
-<div class="recipe-img-wrap" style="position:relative; display:inline-block; width:100%; max-width:720px; margin:40px auto;">
-  <img class="RECIPE-img"
-       src="https://drive.google.com/thumbnail?sz=w1200&id=1bpdqn2qfzrjJ7YhYPxrRta-xgruN9PWH" (이미지3번)
-       alt="쌀가루 성분"
-       style="width:100%; display:block; border-radius:12px; box-shadow:0 8px 32px rgba(92,66,9,0.15);">
-  <div style="position:absolute; top:28px; left:28px; background:rgba(250,246,240,0.92); backdrop-filter:blur(8px); padding:16px 22px; border-radius:8px; box-shadow:0 4px 24px rgba(92,66,9,0.12);" class="recipe-overlay">
-    <div style="font-family:'Cormorant Garamond',serif; font-size:11px; letter-spacing:0.18em; color:var(--accent); text-transform:uppercase; margin-bottom:6px;">organic rice</div>
-    <div style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; color:var(--darkbrown); line-height:1;">55<span style="font-size:18px;">%</span></div>
+  <div class="recipe-img-wrap" style="position:relative; display:inline-block; width:100%; max-width:720px; margin:40px auto;">
+    <img class="RECIPE-img"
+         src="https://drive.google.com/thumbnail?sz=w1200&id=1bpdqn2qfzrjJ7YhYPxrRta-xgruN9PWH"
+         alt="쌀가루 성분"
+         style="width:100%; display:block; border-radius:12px; box-shadow:0 8px 32px rgba(92,66,9,0.15);">
+    <div style="position:absolute; top:28px; left:28px; background:rgba(250,246,240,0.92); backdrop-filter:blur(8px); padding:16px 22px; border-radius:8px; box-shadow:0 4px 24px rgba(92,66,9,0.12);" class="recipe-overlay">
+      <div style="font-family:'Cormorant Garamond',serif; font-size:11px; letter-spacing:0.18em; color:var(--accent); text-transform:uppercase; margin-bottom:6px;">organic rice</div>
+      <div style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; color:var(--darkbrown); line-height:1;">55<span style="font-size:18px;">%</span></div>
+    </div>
   </div>
-</div>
 </section>
 
 <!-- WHY BODLE -->
 <section class="why" id="why">
   <p class="section-label">Why Bodle</p>
-  <h2 class="section-title">보들을 선택하는<br>여섯 가지 이유</h2>
+  <h2 class="section-title" data-i18n="why-title">보들을 선택하는<br>여섯 가지 이유</h2>
   <div class="why-grid">
     <div class="why-card">
       <div class="why-num">01</div>
-      <div class="why-card-eyebrow">'진짜 쌀라떼'의 경험</div>
-      <div class="why-card-title">55% 유기농 쌀가루</div>
-      <div class="why-card-text">
+      <div class="why-card-eyebrow" data-i18n="why1-eyebrow">'진짜 쌀라떼'의 경험</div>
+      <div class="why-card-title" data-i18n="why1-title">55% 유기농 쌀가루</div>
+      <div class="why-card-text" data-i18n="why1-text">
         <p>컨셉 원료로만 넣지 않았습니다. 리얼 유기농 쌀가루 55%를 채워 씻는 단계부터 자극을 줄였습니다.</p>
         <p style="margin-top:10px">인공 향료가 아닌 진짜 쌀가루의 <strong>고소하고 포근한 천연향</strong>이 씻는 순간 힐링을 선물합니다.</p>
       </div>
     </div>
     <div class="why-card">
       <div class="why-num">02</div>
-      <div class="why-card-eyebrow">아이와 아빠까지</div>
-      <div class="why-card-title">온 가족을 위한 '안심 워시'</div>
-      <div class="why-card-text">
+      <div class="why-card-eyebrow" data-i18n="why2-eyebrow">아이와 아빠까지</div>
+      <div class="why-card-title" data-i18n="why2-title">온 가족을 위한 '안심 워시'</div>
+      <div class="why-card-text" data-i18n="why2-text">
         <p>한국비건인증원의 엄격한 기준을 통과한 무해한 안심 처방으로 영유아부터 임산부까지 온 가족이 함께 사용합니다.</p>
         <div class="vegan-cert">🌿 한국비건인증원 인증</div>
         <div class="stat-pill">자외선 차단제 세정력 94.7%</div>
@@ -1550,9 +700,9 @@
     </div>
     <div class="why-card">
       <div class="why-num">03</div>
-      <div class="why-card-eyebrow">피부 본연의 건강</div>
-      <div class="why-card-title">미세산성 & 8-Free</div>
-      <div class="why-card-text">
+      <div class="why-card-eyebrow" data-i18n="why3-eyebrow">피부 본연의 건강</div>
+      <div class="why-card-title" data-i18n="why3-title">미세산성 &amp; 8-Free</div>
+      <div class="why-card-text" data-i18n="why3-text">
         <p>pH 5.5 미세산성 설계로 피부 보호막과 유사한 산도를 유지합니다.</p>
         <p style="margin-top:10px">파파인·브로멜라인·리파아제 <strong>3중 효소</strong>가 묵은 각질만 선택적으로 케어합니다.</p>
         <p style="margin-top:10px">8가지 유해 의심 성분 무첨가로 민감한 피부도 안심.</p>
@@ -1560,27 +710,27 @@
     </div>
     <div class="why-card">
       <div class="why-num">04</div>
-      <div class="why-card-eyebrow">기술의 디테일</div>
-      <div class="why-card-title">3mm 추출구와 습기 차단</div>
-      <div class="why-card-text">
+      <div class="why-card-eyebrow" data-i18n="why4-eyebrow">기술의 디테일</div>
+      <div class="why-card-title" data-i18n="why4-title">3mm 추출구와 습기 차단</div>
+      <div class="why-card-text" data-i18n="why4-text">
         <p>뭉침 없이 부드럽고 시원하게 잘 나오는 <strong>3mm 추출구</strong> 설계.</p>
         <p style="margin-top:10px">습기를 원천 차단하는 밀폐 캡으로 마지막 한 알까지 보송하게 사용 가능합니다.</p>
       </div>
     </div>
     <div class="why-card">
       <div class="why-num">05</div>
-      <div class="why-card-eyebrow">덜어낼 필요 없는</div>
-      <div class="why-card-title">옹골찬 55g</div>
-      <div class="why-card-text">
+      <div class="why-card-eyebrow" data-i18n="why5-eyebrow">덜어낼 필요 없는</div>
+      <div class="why-card-title" data-i18n="why5-title">옹골찬 55g</div>
+      <div class="why-card-text" data-i18n="why5-text">
         <p>여행, 운동, 사우나 갈 때 공병에 덜어낼 번거로움 없이 가방 속에 쏙 들어가는 사이즈.</p>
         <p style="margin-top:10px">55g은 개봉 후 원물의 신선함을 유지하며 가장 효과적으로 사용할 수 있는 <strong>1개월~ 최적 용량</strong>입니다.</p>
       </div>
     </div>
     <div class="why-card">
       <div class="why-num">06</div>
-      <div class="why-card-eyebrow">지속 가능성</div>
-      <div class="why-card-title">평생 쓰는 용기</div>
-      <div class="why-card-text">
+      <div class="why-card-eyebrow" data-i18n="why6-eyebrow">지속 가능성</div>
+      <div class="why-card-title" data-i18n="why6-title">평생 쓰는 용기</div>
+      <div class="why-card-text" data-i18n="why6-text">
         <p>깨질 걱정 없는 <strong>젖병 소재 트라이탄</strong> 용기로 안전함을 더했습니다.</p>
         <p style="margin-top:10px">튼튼한 본품 용기는 그대로 두고, 리필용 파우치(12,000원)로 지구와 가계 경제를 동시에 생각합니다.</p>
       </div>
@@ -1592,29 +742,29 @@
 <section class="gift" id="gift">
   <div class="gift-header">
     <p class="section-label">Gift</p>
-    <h2 class="section-title">마음을 전하는<br>선물</h2>
+    <h2 class="section-title" data-i18n="gift-title">마음을 전하는<br>선물</h2>
   </div>
   <div class="gift-body">
     <div>
-      <p class="gift-intro">단순한 워시 한 병이 아니라, 상대방의 일상을 걱정하는 따뜻한 마음을 전합니다. 정성스러운 크라프트 포장에 담긴 보들은, 소중한 분께 드리는 따뜻한 마음이 됩니다.</p>
+      <p class="gift-intro" data-i18n="gift-intro">단순한 워시 한 병이 아니라, 상대방의 일상을 걱정하는 따뜻한 마음을 전합니다. 정성스러운 크라프트 포장에 담긴 보들은, 소중한 분께 드리는 따뜻한 마음이 됩니다.</p>
       <div class="gift-tags">
         <div class="gift-tag">
-          <div class="gift-tag-title">출산 선물</div>
-          <div class="gift-tag-text">영유아부터 산모까지 안심하고 사용할 수 있는 순한 성분으로, 새 생명을 맞이하는 가정에 실용적인 선물이 됩니다.</div>
+          <div class="gift-tag-title" data-i18n="gift1-title">출산 선물</div>
+          <div class="gift-tag-text" data-i18n="gift1-text">영유아부터 산모까지 안심하고 사용할 수 있는 순한 성분으로, 새 생명을 맞이하는 가정에 실용적인 선물이 됩니다.</div>
         </div>
         <div class="gift-tag">
-          <div class="gift-tag-title">부모님 선물</div>
-          <div class="gift-tag-text">갈라진 손끝을 보듬어주는 쌀가루의 포근함. 매일 쓰는 것이기에 더 감사한 마음을 전할 수 있습니다.</div>
+          <div class="gift-tag-title" data-i18n="gift2-title">부모님 선물</div>
+          <div class="gift-tag-text" data-i18n="gift2-text">갈라진 손끝을 보듬어주는 쌀가루의 포근함. 매일 쓰는 것이기에 더 감사한 마음을 전할 수 있습니다.</div>
         </div>
         <div class="gift-tag">
-          <div class="gift-tag-title">친구·지인 선물</div>
-          <div class="gift-tag-text">크라프트 포장의 따뜻한 감성과 함께, '보들보들한 일상'이라는 특별한 메시지를 선물하세요.</div>
+          <div class="gift-tag-title" data-i18n="gift3-title">친구·지인 선물</div>
+          <div class="gift-tag-text" data-i18n="gift3-text">크라프트 포장의 따뜻한 감성과 함께, '보들보들한 일상'이라는 특별한 메시지를 선물하세요.</div>
         </div>
       </div>
-      <div class="gift-price">Gift Set 1+1 세트 · 28,000원</div>
+      <div class="gift-price" data-i18n="gift-price">Gift Set 1+1 세트 · 28,000원</div>
     </div>
     <img class="gift-img"
-      src="https://drive.google.com/thumbnail?sz=w1200&id=17I1hgypw0xlZf_bDz3jgfkLgpokmPw-1" (이미지4번)
+      src="https://drive.google.com/thumbnail?sz=w1200&id=17I1hgypw0xlZf_bDz3jgfkLgpokmPw-1"
       alt="보들 쌀라떼 워시 크라프트 선물 포장">
   </div>
 </section>
@@ -1622,60 +772,60 @@
 <!-- HOW TO -->
 <section class="howto" id="howto">
   <p class="section-label">How to Use</p>
-  <h2 class="section-title">간단한 세 단계</h2>
-  <p style="font-size:15px;color:var(--muted);line-height:1.8;max-width:500px;">쌀라떼 미세 거품으로 보들보들한 피부를 만나보세요</p>
+  <h2 class="section-title" data-i18n="howto-title">간단한 세 단계</h2>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;max-width:500px;" data-i18n="howto-subtitle">쌀라떼 미세 거품으로 보들보들한 피부를 만나보세요</p>
   <div class="steps">
     <div class="step">
       <div class="step-img-wrap">
-        <img src="https://drive.google.com/thumbnail?sz=w1200&id=1CjUIesxz4TrweeQyzIM2fcC7lL_v9-TT" alt="가루 덜어내기"> (이미지5번)
+        <img src="https://drive.google.com/thumbnail?sz=w1200&id=1CjUIesxz4TrweeQyzIM2fcC7lL_v9-TT" alt="가루 덜어내기">
         <div class="step-badge">1</div>
       </div>
       <div class="step-body">
-        <div class="step-title">톡톡 덜어내기</div>
-        <p class="step-text">젖은 손바닥에 가루를 원하는 만큼 톡톡 덜어냅니다.</p>
-        <span class="step-note">잘 나오는 3mm 구멍!</span>
+        <div class="step-title" data-i18n="step1-title">톡톡 덜어내기</div>
+        <p class="step-text" data-i18n="step1-text">젖은 손바닥에 가루를 원하는 만큼 톡톡 덜어냅니다.</p>
+        <span class="step-note" data-i18n="step1-note">잘 나오는 3mm 구멍!</span>
       </div>
     </div>
     <div class="step">
       <div class="step-img-wrap">
-        <img src="https://drive.google.com/thumbnail?sz=w1200&id=1jbQQqCDlhREMUC-M87eTi1t3sfig9JrP" alt="미세 거품 만들기"> (이미지6번)
+        <img src="https://drive.google.com/thumbnail?sz=w1200&id=1jbQQqCDlhREMUC-M87eTi1t3sfig9JrP" alt="미세 거품 만들기">
         <div class="step-badge">2</div>
       </div>
       <div class="step-body">
-        <div class="step-title">미세 거품 만들기</div>
-        <p class="step-text">물을 살짝 묻혀 문질러 조밀한 쌀라떼 미세 거품을 냅니다.</p>
-        <span class="step-note">고소한 천연향이 퍼집니다</span>
+        <div class="step-title" data-i18n="step2-title">미세 거품 만들기</div>
+        <p class="step-text" data-i18n="step2-text">물을 살짝 묻혀 문질러 조밀한 쌀라떼 미세 거품을 냅니다.</p>
+        <span class="step-note" data-i18n="step2-note">고소한 천연향이 퍼집니다</span>
       </div>
     </div>
     <div class="step">
       <div class="step-img-wrap">
-        <img src="https://drive.google.com/thumbnail?sz=w1200&id=1gICAUroR6xB1ez5vlhVuTxhVsKfQoKlx" alt="마사지 후 헹구기"> (이미지7번
+        <img src="https://drive.google.com/thumbnail?sz=w1200&id=1gICAUroR6xB1ez5vlhVuTxhVsKfQoKlx" alt="마사지 후 헹구기">
         <div class="step-badge">3</div>
       </div>
       <div class="step-body">
-        <div class="step-title">부드럽게 마사지</div>
-        <p class="step-text">얼굴, 손, 또는 전신을 부드럽게 마사지한 후 헹굽니다.</p>
-        <span class="step-note">보들보들한 피부 완성</span>
+        <div class="step-title" data-i18n="step3-title">부드럽게 마사지</div>
+        <p class="step-text" data-i18n="step3-text">얼굴, 손, 또는 전신을 부드럽게 마사지한 후 헹굽니다.</p>
+        <span class="step-note" data-i18n="step3-note">보들보들한 피부 완성</span>
       </div>
     </div>
   </div>
   <div class="usage-note">
     <div>
-      <div class="usage-note-title">권장 사용량</div>
+      <div class="usage-note-title" data-i18n="usage-title">권장 사용량</div>
       <div class="usage-items">
         <div class="usage-item">
           <div class="val">0.2g</div>
-          <div class="lbl">일반 손세정</div>
+          <div class="lbl" data-i18n="usage1">일반 손세정</div>
         </div>
         <div class="usage-item" style="width:1px;background:rgba(139,105,20,0.2);align-self:stretch;"></div>
         <div class="usage-item">
           <div class="val">0.5g</div>
-          <div class="lbl">풍성하게 손세정</div>
+          <div class="lbl" data-i18n="usage2">풍성하게 손세정</div>
         </div>
         <div class="usage-item" style="width:1px;background:rgba(139,105,20,0.2);align-self:stretch;"></div>
         <div class="usage-item">
           <div class="val">1g</div>
-          <div class="lbl">세안 시</div>
+          <div class="lbl" data-i18n="usage3">세안 시</div>
         </div>
       </div>
     </div>
@@ -1684,42 +834,37 @@
 
 <!-- CLINICAL TEST RESULT -->
 <section class="clinical" id="clinical">
-  <p class="section-label">Proven & Efficacy</p>
-  <h2 class="section-title">검증된 효능과<br>안전성</h2>
+  <p class="section-label">Proven &amp; Efficacy</p>
+  <h2 class="section-title" data-i18n="clinical-title">검증된 효능과<br>안전성</h2>
 
-  <!-- 상단: Safety(좌) + 인증서(우) — 라인 정렬 -->
   <div class="clinical-bottom">
-
-    <!-- 좌측: Safety First 3가지 -->
     <div class="clinical-safety-left">
-      <div class="clinical-sub-label">Safety First</div>
-      <p class="clinical-desc">보들 쌀라떼 워시는 국내 공신력 있는 기관의 검사를 거쳐 안전성이 입증된 믿을 수 있는 제품입니다.</p>
+      <div class="clinical-sub-label" data-i18n="safety-label">Safety First</div>
+      <p class="clinical-desc" data-i18n="safety-desc">보들 쌀라떼 워시는 국내 공신력 있는 기관의 검사를 거쳐 안전성이 입증된 믿을 수 있는 제품입니다.</p>
       <div class="safety-list">
         <div class="safety-item">
           <div class="safety-badge certified">CERTIFIED</div>
           <div>
-            <div class="safety-title">한국비건인증원 인증</div>
-            <div class="safety-text">100% 비건 화장품 인증 획득 · 동물 유래 성분 및 동물실험 없음</div>
+            <div class="safety-title" data-i18n="cert1-title">한국비건인증원 인증</div>
+            <div class="safety-text" data-i18n="cert1-text">100% 비건 화장품 인증 획득 · 동물 유래 성분 및 동물실험 없음</div>
           </div>
         </div>
         <div class="safety-item">
           <div class="safety-badge tested">TESTED</div>
           <div>
-            <div class="safety-title">민감성 피부 테스트</div>
-            <div class="safety-text">민감성 피부 대상 무자극 판정</div>
+            <div class="safety-title" data-i18n="cert2-title">민감성 피부 테스트</div>
+            <div class="safety-text" data-i18n="cert2-text">민감성 피부 대상 무자극 판정</div>
           </div>
         </div>
         <div class="safety-item">
           <div class="safety-badge tested">TESTED</div>
           <div>
-            <div class="safety-title">피부 저자극 테스트</div>
-            <div class="safety-text">피부 1차 자극 테스트 무자극 판정</div>
+            <div class="safety-title" data-i18n="cert3-title">피부 저자극 테스트</div>
+            <div class="safety-text" data-i18n="cert3-text">피부 1차 자극 테스트 무자극 판정</div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- 우측: 비건 인증서 이미지 -->
     <div class="cert-image-wrap">
       <div class="cert-image-frame">
         <img
@@ -1727,119 +872,94 @@
           alt="한국비건인증원 비건 인증서">
       </div>
     </div>
-
   </div>
 
-  <!-- Immediate Effects 타이틀 블록 -->
   <div class="immediate-header">
     <div class="immediate-title">Immediate Effects</div>
-    <p class="immediate-sub">단 1회 사용으로 증명된 효과 &nbsp;·&nbsp; (주)더마코스메틱 피부과학연구소 / 20~59세 성인 여성 대상</p>
+    <p class="immediate-sub" data-i18n="immediate-sub">단 1회 사용으로 증명된 효과 &nbsp;·&nbsp; (주)더마코스메틱 피부과학연구소 / 20~59세 성인 여성 대상</p>
   </div>
 
-  <!-- 하단: 4개 효능 수치 카드 -->
   <div class="efficacy-row">
-
     <div class="efficacy-card">
       <div class="efficacy-card-icon">
-        <svg viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="4"/>
-          <path d="M12 2 L12 5.5M12 18.5 L12 22M2 12 L5.5 12M18.5 12 L22 12M4.9 4.9 L7.4 7.4M16.6 16.6 L19.1 19.1M19.1 4.9 L16.6 7.4M7.4 16.6 L4.9 19.1"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2 L12 5.5M12 18.5 L12 22M2 12 L5.5 12M18.5 12 L22 12M4.9 4.9 L7.4 7.4M16.6 16.6 L19.1 19.1M19.1 4.9 L16.6 7.4M7.4 16.6 L4.9 19.1"/></svg>
       </div>
       <div class="efficacy-card-val">94.7<span class="efficacy-unit">%</span></div>
       <div class="efficacy-card-text">
-        <div class="efficacy-card-title">자외선 차단제 세정력</div>
-        <div class="efficacy-card-desc">워터프루프 선크림까지 깔끔하게 딥 클렌징</div>
+        <div class="efficacy-card-title" data-i18n="ef1-title">자외선 차단제 세정력</div>
+        <div class="efficacy-card-desc" data-i18n="ef1-desc">워터프루프 선크림까지 깔끔하게 딥 클렌징</div>
       </div>
     </div>
-
     <div class="efficacy-card">
       <div class="efficacy-card-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M3 8 Q7 5 12 8 Q17 11 21 8"/>
-          <path d="M3 13 Q7 10 12 13 Q17 16 21 13"/>
-          <path d="M3 18 Q7 15 12 18 Q17 21 21 18"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M3 8 Q7 5 12 8 Q17 11 21 8"/><path d="M3 13 Q7 10 12 13 Q17 16 21 13"/><path d="M3 18 Q7 15 12 18 Q17 21 21 18"/></svg>
       </div>
       <div class="efficacy-card-val">87.8<span class="efficacy-unit">%</span></div>
       <div class="efficacy-card-text">
-        <div class="efficacy-card-title">피부 묵은 각질 제거</div>
-        <div class="efficacy-card-desc">피부 결 정돈 및 투명도 개선</div>
+        <div class="efficacy-card-title" data-i18n="ef2-title">피부 묵은 각질 제거</div>
+        <div class="efficacy-card-desc" data-i18n="ef2-desc">피부 결 정돈 및 투명도 개선</div>
       </div>
     </div>
-
     <div class="efficacy-card">
       <div class="efficacy-card-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 3 C8 7 5 10.5 5 14 C5 17.9 8.1 21 12 21 C15.9 21 19 17.9 19 14 C19 10.5 16 7 12 3Z"/>
-          <path d="M12 10 L12 17"/>
-          <path d="M9.5 13.5 Q11 12 12 13 Q13 12 14.5 13.5"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M12 3 C8 7 5 10.5 5 14 C5 17.9 8.1 21 12 21 C15.9 21 19 17.9 19 14 C19 10.5 16 7 12 3Z"/><path d="M12 10 L12 17"/><path d="M9.5 13.5 Q11 12 12 13 Q13 12 14.5 13.5"/></svg>
       </div>
       <div class="efficacy-card-val">80.7<span class="efficacy-unit">%</span></div>
       <div class="efficacy-card-text">
-        <div class="efficacy-card-title">피부 붉은기 진정</div>
-        <div class="efficacy-card-desc">자극 받은 피부 즉각 진정 효과</div>
+        <div class="efficacy-card-title" data-i18n="ef3-title">피부 붉은기 진정</div>
+        <div class="efficacy-card-desc" data-i18n="ef3-desc">자극 받은 피부 즉각 진정 효과</div>
       </div>
     </div>
-
     <div class="efficacy-card">
       <div class="efficacy-card-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M3 10 Q12 7 21 10"/>
-          <path d="M11 10 L11 16 Q12 18 13 16 L13 10"/>
-          <circle cx="12" cy="16.5" r="2" fill="var(--green)" stroke="none" opacity="0.4"/>
-          <path d="M7 10.5 Q8 8.5 9 10"/>
-          <path d="M15 10 Q16 8.5 17 10.5"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M3 10 Q12 7 21 10"/><path d="M11 10 L11 16 Q12 18 13 16 L13 10"/><circle cx="12" cy="16.5" r="2" fill="var(--green)" stroke="none" opacity="0.4"/><path d="M7 10.5 Q8 8.5 9 10"/><path d="M15 10 Q16 8.5 17 10.5"/></svg>
       </div>
       <div class="efficacy-card-val">48.6<span class="efficacy-unit">%</span></div>
       <div class="efficacy-card-text">
-        <div class="efficacy-card-title">블랙헤드 세정력</div>
-        <div class="efficacy-card-desc">모공 속 피지 노폐물 딥 클렌징</div>
+        <div class="efficacy-card-title" data-i18n="ef4-title">블랙헤드 세정력</div>
+        <div class="efficacy-card-desc" data-i18n="ef4-desc">모공 속 피지 노폐물 딥 클렌징</div>
       </div>
     </div>
-
   </div>
 </section>
 
 <!-- COMPARISON -->
 <section class="comparison">
   <p class="section-label">Comparison</p>
-  <h2 class="section-title">일반 비누와<br>무엇이 다를까요</h2>
+  <h2 class="section-title" data-i18n="comp-title">일반 비누와<br>무엇이 다를까요</h2>
   <table class="compare-table">
     <thead>
       <tr>
         <th></th>
-        <th class="col-normal">일반 알칼리 비누 / 워시</th>
-        <th class="col-bodle">보들 쌀라떼 워시</th>
+        <th class="col-normal" data-i18n="comp-normal">일반 알칼리 비누 / 워시</th>
+        <th class="col-bodle" data-i18n="comp-bodle">보들 쌀라떼 워시</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>주성분</td>
-        <td class="col-normal">정제수(물), 합성 계면활성제</td>
-        <td class="col-bodle">유기농 쌀가루 55%, 자연 유래 계면활성제</td>
+        <td data-i18n="comp-row1-label">주성분</td>
+        <td class="col-normal" data-i18n="comp-row1-normal">정제수(물), 합성 계면활성제</td>
+        <td class="col-bodle" data-i18n="comp-row1-bodle">유기농 쌀가루 55%, 자연 유래 계면활성제</td>
       </tr>
       <tr>
-        <td>향기</td>
-        <td class="col-normal">인위적인 인공 향료</td>
-        <td class="col-bodle">천연 재료의 고소한 쌀라떼 향</td>
+        <td data-i18n="comp-row2-label">향기</td>
+        <td class="col-normal" data-i18n="comp-row2-normal">인위적인 인공 향료</td>
+        <td class="col-bodle" data-i18n="comp-row2-bodle">천연 재료의 고소한 쌀라떼 향</td>
       </tr>
       <tr>
-        <td>보관 / 휴대</td>
-        <td class="col-normal">습기에 무르고 휴대 시 샘</td>
-        <td class="col-bodle">습기 차단 & 덜어 쓸 필요 없는 용기</td>
+        <td data-i18n="comp-row3-label">보관 / 휴대</td>
+        <td class="col-normal" data-i18n="comp-row3-normal">습기에 무르고 휴대 시 샘</td>
+        <td class="col-bodle" data-i18n="comp-row3-bodle">습기 차단 &amp; 덜어 쓸 필요 없는 용기</td>
       </tr>
       <tr>
-        <td>피부 산도</td>
-        <td class="col-normal">알칼리성 pH 9~10 (자극 우려)</td>
-        <td class="col-bodle">pH 5.5 미세산성 (순한 세정)</td>
+        <td data-i18n="comp-row4-label">피부 산도</td>
+        <td class="col-normal" data-i18n="comp-row4-normal">알칼리성 pH 9~10 (자극 우려)</td>
+        <td class="col-bodle" data-i18n="comp-row4-bodle">pH 5.5 미세산성 (순한 세정)</td>
       </tr>
       <tr>
-        <td>특수 케어</td>
-        <td class="col-normal">단순 세정 위주</td>
-        <td class="col-bodle">손끝 습진 및 조갑 세로홈 보호, 각질 케어</td>
+        <td data-i18n="comp-row5-label">특수 케어</td>
+        <td class="col-normal" data-i18n="comp-row5-normal">단순 세정 위주</td>
+        <td class="col-bodle" data-i18n="comp-row5-bodle">손끝 습진 및 조갑 세로홈 보호, 각질 케어</td>
       </tr>
     </tbody>
   </table>
@@ -1848,12 +968,11 @@
 <!-- PRODUCT INFO -->
 <section class="product-info" id="product-info">
   <p class="section-label">Product Info</p>
-  <h2 class="section-title">제품 기본정보</h2>
+  <h2 class="section-title" data-i18n="info-title">제품 기본정보</h2>
 
-  <!-- 이미지 3×2 그리드 (기존 그대로 유지) -->
   <div class="info-photos-grid">
     <img class="info-photo" loading="lazy" data-index="0"
-         src="https://drive.google.com/thumbnail?sz=w1200&id=1IucRWeh_RPSTXPZWoDaqpNpWjTl4LdLm" alt="보들 쌀라떼 워시 - 쌀 이삭과 통">
+         src="https://drive.google.com/thumbnail?sz=w1200&id=1IucRWeh_RPSTXPZWoDaqpNpWjTl4LdLm" alt="보들 쌀라떼 워시">
     <img class="info-photo" loading="lazy" data-index="1"
          src="https://drive.google.com/thumbnail?sz=w1200&id=1ln9_H3IBB3_9rwvHCYqQLisVSDShoT0v" alt="보들 제품 두 병과 쌀">
     <img class="info-photo" loading="lazy" data-index="2"
@@ -1866,188 +985,547 @@
          src="https://drive.google.com/thumbnail?sz=w1200&id=10mdNfnnOQQ5tvyCEEj1J8k6sLaw4FX9g" alt="보들 제품 - 쌀가루 통 가까이">
   </div>
 
-  <!-- 제품명 -->
-  <h3 class="product-main-name">보들 쌀라떼 워시</h3>
+  <h3 class="product-main-name" data-i18n="product-name">보들 쌀라떼 워시</h3>
 
-  <!-- 좌우 2컬럼 테이블 (7줄씩 정확히 맞춤) -->
   <div class="info-table-container">
     <div class="info-table-column left">
       <table>
-        <tr><th>제품 유형</th><td>파우더 타입 워시 (핸드/페이셜/바디)</td></tr>
-        <tr><th>용량</th><td>55g (약 1개월~ 사용)</td></tr>
-        <tr><th>주요 성분</th><td>국내산 유기농 쌀가루 55%</td></tr>
-        <tr><th>pH</th><td>pH 5.5 미세산성</td></tr>
-        <tr><th>용기 소재</th><td>친환경 트라이탄 (BPA Free)</td></tr>
-        <tr><th>캡</th><td>3mm 습기 차단 원터치 캡</td></tr>
-        <tr><th>향</th><td>천연 쌀가루 고소향 (인공 향료 무첨가)</td></tr>
+        <tr><th data-i18n="tbl-type">제품 유형</th><td data-i18n="tbl-type-val">파우더 타입 워시 (핸드/페이셜/바디)</td></tr>
+        <tr><th data-i18n="tbl-vol">용량</th><td data-i18n="tbl-vol-val">55g (약 1개월~ 사용)</td></tr>
+        <tr><th data-i18n="tbl-main">주요 성분</th><td data-i18n="tbl-main-val">국내산 유기농 쌀가루 55%</td></tr>
+        <tr><th>pH</th><td>pH 5.5 (Mildly Acidic)</td></tr>
+        <tr><th data-i18n="tbl-mat">용기 소재</th><td data-i18n="tbl-mat-val">친환경 트라이탄 (BPA Free)</td></tr>
+        <tr><th data-i18n="tbl-cap">캡</th><td data-i18n="tbl-cap-val">3mm 습기 차단 원터치 캡</td></tr>
+        <tr><th data-i18n="tbl-scent">향</th><td data-i18n="tbl-scent-val">천연 쌀가루 고소향 (인공 향료 무첨가)</td></tr>
       </table>
     </div>
-
     <div class="info-table-column right">
       <table>
-        <tr><th>대상</th><td>영유아부터 성인까지 전 가족용</td></tr>
-        <tr><th>비건 인증</th><td>한국비건인증원 인증</td></tr>
-        <tr><th>제조국</th><td>대한민국</td></tr>
-        <tr><th>판매원</th><td>보들 (bodle)</td></tr>
-        <tr><th>제조사</th><td>다비드코스메틱</td></tr>
-        <tr><th>사용기한</th><td>제조일로부터 24개월</td></tr>
-        <tr><th>판매 가격</th><td>본품 18,000원 / 1+1 세트 28,000원 / 리필용 12,000원</td></tr>
+        <tr><th data-i18n="tbl-target">대상</th><td data-i18n="tbl-target-val">영유아부터 성인까지 전 가족용</td></tr>
+        <tr><th data-i18n="tbl-vegan">비건 인증</th><td data-i18n="tbl-vegan-val">한국비건인증원 인증</td></tr>
+        <tr><th data-i18n="tbl-origin">제조국</th><td data-i18n="tbl-origin-val">대한민국</td></tr>
+        <tr><th data-i18n="tbl-seller">판매원</th><td>보들 (bodle)</td></tr>
+        <tr><th data-i18n="tbl-mfg">제조사</th><td data-i18n="tbl-mfg-val">다비드코스메틱</td></tr>
+        <tr><th data-i18n="tbl-exp">사용기한</th><td data-i18n="tbl-exp-val">제조일로부터 24개월</td></tr>
+        <tr><th data-i18n="tbl-price">판매 가격</th><td data-i18n="tbl-price-val">본품 18,000원 / 1+1 세트 28,000원 / 리필용 12,000원</td></tr>
       </table>
     </div>
   </div>
 
-  <!-- 주의사항 -->
-  <div class="info-note">
+  <div class="info-note" data-i18n="info-note">
     ※ 제품의 외관, 라벨 디자인은 품질 개선을 위해 변경될 수 있습니다.<br>
     ※ AG8 Revital™: 실리콘, 파라벤, 미네랄오일, 트리에탄올아민, 이미다졸리디닐우레아, 인공색소, 인공향료, PEG계 성분 무첨가
   </div>
 </section>
+
 <!-- PRICING -->
 <section class="pricing" id="pricing">
   <p class="section-label">Shop</p>
-  <h2 class="section-title">나에게 맞는 보들을<br>선택하세요</h2>
+  <h2 class="section-title" data-i18n="pricing-title">나에게 맞는 보들을<br>선택하세요</h2>
   <div class="pricing-grid">
     <div class="price-card">
       <div class="price-card-type">Single</div>
-      <div class="price-card-name">본품</div>
+      <div class="price-card-name" data-i18n="price1-name">본품</div>
       <div class="price-amount"><span class="price-currency">₩</span>18,000</div>
-      <div class="price-desc">55g 시그니처 용량</div>
+      <div class="price-desc" data-i18n="price1-desc">55g 시그니처 용량</div>
       <ul class="price-features">
-        <li>친환경 트라이탄 용기</li>
-        <li>3mm 원터치 캡</li>
-        <li>약 1개월~ 사용</li>
+        <li data-i18n="price1-f1">친환경 트라이탄 용기</li>
+        <li data-i18n="price1-f2">3mm 원터치 캡</li>
+        <li data-i18n="price1-f3">약 1개월~ 사용</li>
       </ul>
-      <a href="#" class="btn-buy">구매하기</a>
+      <a href="#" class="btn-buy" data-i18n="btn-buy">구매하기</a>
     </div>
     <div class="price-card best">
       <div class="best-badge">BEST</div>
       <div class="price-card-type">Double Set</div>
-      <div class="price-card-name">1+1 세트</div>
+      <div class="price-card-name" data-i18n="price2-name">1+1 세트</div>
       <div class="price-amount"><span class="price-currency">₩</span>28,000</div>
-      <div class="price-desc">주방 + 욕실 스마트 배치</div>
+      <div class="price-desc" data-i18n="price2-desc">주방 + 욕실 스마트 배치</div>
       <ul class="price-features">
-        <li>본품 2개 구성</li>
-        <li>가족 모두 사용</li>
-        <li>개당 14,000원</li>
+        <li data-i18n="price2-f1">본품 2개 구성</li>
+        <li data-i18n="price2-f2">가족 모두 사용</li>
+        <li data-i18n="price2-f3">개당 14,000원</li>
       </ul>
-      <a href="#" class="btn-buy">구매하기</a>
+      <a href="#" class="btn-buy" data-i18n="btn-buy">구매하기</a>
     </div>
     <div class="price-card">
       <div class="price-card-type">Refill</div>
-      <div class="price-card-name">리필용</div>
+      <div class="price-card-name" data-i18n="price3-name">리필용</div>
       <div class="price-amount"><span class="price-currency">₩</span>12,000</div>
-      <div class="price-desc">경제적인 리필 파우치</div>
+      <div class="price-desc" data-i18n="price3-desc">경제적인 리필 파우치</div>
       <ul class="price-features">
-        <li>친환경 파우치 포장</li>
-        <li>본품 용기 재사용</li>
-        <li>지구를 생각하는 선택</li>
+        <li data-i18n="price3-f1">친환경 파우치 포장</li>
+        <li data-i18n="price3-f2">본품 용기 재사용</li>
+        <li data-i18n="price3-f3">지구를 생각하는 선택</li>
       </ul>
-      <a href="#" class="btn-buy">구매하기</a>
+      <a href="#" class="btn-buy" data-i18n="btn-buy">구매하기</a>
     </div>
   </div>
 </section>
 
 <!-- LETTER -->
 <section class="letter">
-  <p class="letter-text">
+  <p class="letter-text" data-i18n="letter-text">
     "저희 엄마의 거친 손끝을 보며 만든 진심이,<br>
     아이와 온 가족의 피부에<br>
     따뜻한 위로가 되길 바랍니다."
   </p>
-  <p class="letter-sig">💌 보들 스태프 드림</p>
-  <p style="margin-top:20px;font-size:12px;color:rgba(92,53,32,0.45)">※ 세안 후 보습감은 개인의 피부 타입에 따라 차이가 있을 수 있습니다.</p>
+  <p class="letter-sig" data-i18n="letter-sig">💌 보들 스태프 드림</p>
+  <p style="margin-top:20px;font-size:12px;color:rgba(92,53,32,0.45)" data-i18n="letter-note">※ 세안 후 보습감은 개인의 피부 타입에 따라 차이가 있을 수 있습니다.</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div>
     <div class="footer-brand" style="display:flex;align-items:baseline;gap:8px;"><span style="font-family:'Noto Serif KR',serif;font-size:28px;font-weight:700;color:var(--rice);">보들</span><span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--warm);letter-spacing:0.2em;text-transform:uppercase;">bodle</span></div>
-    <p class="footer-tagline">엄마의 갈라진 손끝에서 시작해,<br>온 가족의 피부를 보듬는 55%의 진심</p>
+    <p class="footer-tagline" data-i18n="footer-tagline">엄마의 갈라진 손끝에서 시작해,<br>온 가족의 피부를 보듬는 55%의 진심</p>
   </div>
   <div>
-    <div class="footer-col-title">Product</div>
+    <div class="footer-col-title" data-i18n="footer-product">Product</div>
     <ul class="footer-col-list">
-      <li>보들 쌀라떼 워시 55g</li>
-      <li>pH 5.5 미세산성</li>
-      <li>유기농 쌀가루 55%</li>
-      <li>한국비건인증원 인증</li>
+      <li data-i18n="footer-p1">보들 쌀라떼 워시 55g</li>
+      <li>pH 5.5</li>
+      <li data-i18n="footer-p2">유기농 쌀가루 55%</li>
+      <li data-i18n="footer-p3">한국비건인증원 인증</li>
     </ul>
   </div>
   <div>
-    <div class="footer-col-title">Info</div>
+    <div class="footer-col-title" data-i18n="footer-info">Info</div>
     <ul class="footer-col-list">
-      <li>전 가족 사용 가능</li>
-      <li>BPA Free 트라이탄 용기</li>
-      <li>8가지 유해성분 무첨가</li>
+      <li data-i18n="footer-i1">전 가족 사용 가능</li>
+      <li data-i18n="footer-i2">BPA Free 트라이탄 용기</li>
+      <li data-i18n="footer-i3">8가지 유해성분 무첨가</li>
     </ul>
   </div>
   <div class="footer-copy">
     <span>© 2026 Bodle. All rights reserved.</span>
-    <span>AG8 Revital™ — 8가지 유해성분 무첨가</span>
+    <span data-i18n="footer-ag8">AG8 Revital™ — 8가지 유해성분 무첨가</span>
   </div>
 </footer>
 
-<script>
-
-document.querySelector('.menu-toggle').addEventListener('click', () => {
-  document.querySelector('.nav-links').classList.toggle('active');
-});
-
-
-  // Intersection Observer for scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-  document.querySelectorAll('.number-card, .why-card, .step, .ingredient-item, .gift-tag, .price-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(24px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
-</script>
 <!-- LIGHTBOX -->
-<div id="lightbox" style="
-  display:none; position:fixed; inset:0; z-index:9999;
-  background:rgba(0,0,0,0.88); backdrop-filter:blur(6px);
-  align-items:center; justify-content:center;
-">
-  <button id="lb-close" style="
-    position:absolute; top:20px; right:24px;
-    background:none; border:none; color:#fff;
-    font-size:32px; cursor:pointer; line-height:1; opacity:0.8;
-  ">✕</button>
-  <button id="lb-prev" style="
-    position:absolute; left:20px;
-    background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25);
-    color:#fff; font-size:22px; width:48px; height:48px;
-    border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;
-    transition:background 0.2s;
-  ">‹</button>
-  <img id="lb-img" src="" style="
-    max-width:90vw; max-height:85vh;
-    border-radius:6px; object-fit:contain;
-    box-shadow:0 20px 60px rgba(0,0,0,0.5);
-    transition:opacity 0.2s;
-  ">
-  <button id="lb-next" style="
-    position:absolute; right:20px;
-    background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25);
-    color:#fff; font-size:22px; width:48px; height:48px;
-    border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;
-    transition:background 0.2s;
-  ">›</button>
-  <div id="lb-counter" style="
-    position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
-    color:rgba(255,255,255,0.6); font-size:13px; letter-spacing:0.1em;
-  "></div>
+<div id="lightbox" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.88); backdrop-filter:blur(6px); align-items:center; justify-content:center;">
+  <button id="lb-close" style="position:absolute; top:20px; right:24px; background:none; border:none; color:#fff; font-size:32px; cursor:pointer; line-height:1; opacity:0.8;">✕</button>
+  <button id="lb-prev" style="position:absolute; left:20px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25); color:#fff; font-size:22px; width:48px; height:48px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s;">‹</button>
+  <img id="lb-img" src="" style="max-width:90vw; max-height:85vh; border-radius:6px; object-fit:contain; box-shadow:0 20px 60px rgba(0,0,0,0.5); transition:opacity 0.2s;">
+  <button id="lb-next" style="position:absolute; right:20px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25); color:#fff; font-size:22px; width:48px; height:48px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s;">›</button>
+  <div id="lb-counter" style="position:absolute; bottom:24px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.6); font-size:13px; letter-spacing:0.1em;"></div>
 </div>
 
+<script>
+// ══════════════════════════════════════════════
+// TRANSLATIONS
+// ══════════════════════════════════════════════
+const T = {
+  ko: {
+    'page-title': '보들 쌀라떼 워시 - 제품 상세 페이지',
+    'nav-story': 'Story',
+    'nav-howto': 'How to',
+    'hero-title': '보들<br>쌀라떼 워시',
+    'hero-subtitle': '엄마의 갈라진 손끝에서 시작해,<br>온 가족의 피부를 보듬는 55%의 진심',
+    'badge-rice': '55% 쌀가루',
+    'badge-ph': 'pH 5.5 미세산성',
+    'badge-vegan': '🌿 100% 비건 인증',
+    'hero-cta': '제품 구매하기',
+    'story-title': '비누로 씻을 때마다<br>손끝이 갈라진다는<br>엄마의 말 한마디에서<br>시작되었습니다.',
+    'story-p1': '사람들은 하루 평균 8번 손을 씻는다고 합니다. 꼭 필요한 습관이지만, 물 마를 날 없는 엄마의 일상에서는 이 \'꼭 필요한 8번\'이 피부에 적지 않은 부담이 됩니다. 세정력이 강한 비누와 주방 세제는 오염뿐만 아니라 소중한 피부 보호막까지 앗아가기 때문입니다.',
+    'story-p2': '손끝은 갈라지고, 손톱은 깨지고, 손등은 어느새 거칠어집니다. 각질이 벗겨지는 <span class="story-highlight">손끝 습진</span>, 손톱에 세로 줄이 생기는 <span class="story-highlight">조갑 세로홈</span>—혹시 당신도 겪고 계신가요?',
+    'story-quote': '"가장 깨끗하게 씻으면서도,<br>갈라진 손끝에 위로가 될 수는 없을까?"',
+    'story-p3': '그 해답은 예로부터 순한 세안법으로 사랑받은 <strong>\'쌀물 세안\'</strong>에 있었습니다. 껍데기만 흉내 낸 추출물이 아니라, <strong>진짜 국내산 유기농 쌀가루를 55%</strong>나 쏟아부었습니다. 잦은 세정에도 자극 없이, 거칠어진 엄마의 손끝이 다시 \'보들보들\'해지길 바라는 진심을 담았습니다.',
+    'numbers-title': '숫자로 보는 진심',
+    'num1-label': '유기농 쌀가루',
+    'num1-desc': '정제수 대신 유기농 쌀가루 55%를 채워 씻는 단계부터 자극을 줄였습니다.',
+    'num2-label': '미세산성',
+    'num2-desc': '피부 보호막을 지켜주는 순한 산도로 영유아부터 성인까지 안심하고 사용합니다.',
+    'num3-label': '자외선 차단제 세정력',
+    'num3-desc': '자연 유래 계면활성제임에도 워터프루프 선크림까지 말끔하게 제거합니다.',
+    'num4-label': '인공 향료',
+    'num4-desc': '진짜 쌀가루의 고소하고 포근한 천연향만을 담았습니다.',
+    'recipe-title': '진짜 쌀가루를<br>55% 담았습니다',
+    'ing1-name': '유기농 쌀가루 55%',
+    'ing1-desc': '국내산 유기농 쌀을 곱게 빻아 정제수 대신 채웠습니다.',
+    'ing2-name': '자연 유래 계면활성제',
+    'ing2-desc': '영유아부터 임산부까지 안심하고 사용하는 순한 성분. 100% 비건 인증.',
+    'ing2-hl': '비건 인증',
+    'ing3-name': '파파인·브로멜라인·리파아제 3중 효소',
+    'ing3-desc': '자연 유래 효소가 묵은 각질을 부드럽게 선택적으로 케어합니다.',
+    'ing4-desc': '민감해진 피부를 진정시키고 보호합니다.',
+    'ing4-hl': '진정',
+    'full-ingredients': '<strong>전성분</strong><br>쌀가루(55%), 소듐코코일이세티오네이트, 소듐라우로일글루타메이트(자연유래), 옥수수전분, 다이글리세린, 알란토인, 파파인, 브로멜라인, 리파아제, 말토덱스트린, 정제수, 부틸렌글라이콜, 1,2-헥산다이올, AG8 Revital™ (8가지 유해성분 무첨가)',
+    'why-title': '보들을 선택하는<br>여섯 가지 이유',
+    'why1-eyebrow': '\'진짜 쌀라떼\'의 경험',
+    'why1-title': '55% 유기농 쌀가루',
+    'why1-text': '<p>컨셉 원료로만 넣지 않았습니다. 리얼 유기농 쌀가루 55%를 채워 씻는 단계부터 자극을 줄였습니다.</p><p style="margin-top:10px">인공 향료가 아닌 진짜 쌀가루의 <strong>고소하고 포근한 천연향</strong>이 씻는 순간 힐링을 선물합니다.</p>',
+    'why2-eyebrow': '아이와 아빠까지',
+    'why2-title': '온 가족을 위한 \'안심 워시\'',
+    'why2-text': '<p>한국비건인증원의 엄격한 기준을 통과한 무해한 안심 처방으로 영유아부터 임산부까지 온 가족이 함께 사용합니다.</p><div class="vegan-cert">🌿 한국비건인증원 인증</div><div class="stat-pill">자외선 차단제 세정력 94.7%</div>',
+    'why3-eyebrow': '피부 본연의 건강',
+    'why3-title': '미세산성 & 8-Free',
+    'why3-text': '<p>pH 5.5 미세산성 설계로 피부 보호막과 유사한 산도를 유지합니다.</p><p style="margin-top:10px">파파인·브로멜라인·리파아제 <strong>3중 효소</strong>가 묵은 각질만 선택적으로 케어합니다.</p><p style="margin-top:10px">8가지 유해 의심 성분 무첨가로 민감한 피부도 안심.</p>',
+    'why4-eyebrow': '기술의 디테일',
+    'why4-title': '3mm 추출구와 습기 차단',
+    'why4-text': '<p>뭉침 없이 부드럽고 시원하게 잘 나오는 <strong>3mm 추출구</strong> 설계.</p><p style="margin-top:10px">습기를 원천 차단하는 밀폐 캡으로 마지막 한 알까지 보송하게 사용 가능합니다.</p>',
+    'why5-eyebrow': '덜어낼 필요 없는',
+    'why5-title': '옹골찬 55g',
+    'why5-text': '<p>여행, 운동, 사우나 갈 때 공병에 덜어낼 번거로움 없이 가방 속에 쏙 들어가는 사이즈.</p><p style="margin-top:10px">55g은 개봉 후 원물의 신선함을 유지하며 가장 효과적으로 사용할 수 있는 <strong>1개월~ 최적 용량</strong>입니다.</p>',
+    'why6-eyebrow': '지속 가능성',
+    'why6-title': '평생 쓰는 용기',
+    'why6-text': '<p>깨질 걱정 없는 <strong>젖병 소재 트라이탄</strong> 용기로 안전함을 더했습니다.</p><p style="margin-top:10px">튼튼한 본품 용기는 그대로 두고, 리필용 파우치(12,000원)로 지구와 가계 경제를 동시에 생각합니다.</p>',
+    'gift-title': '마음을 전하는<br>선물',
+    'gift-intro': '단순한 워시 한 병이 아니라, 상대방의 일상을 걱정하는 따뜻한 마음을 전합니다. 정성스러운 크라프트 포장에 담긴 보들은, 소중한 분께 드리는 따뜻한 마음이 됩니다.',
+    'gift1-title': '출산 선물',
+    'gift1-text': '영유아부터 산모까지 안심하고 사용할 수 있는 순한 성분으로, 새 생명을 맞이하는 가정에 실용적인 선물이 됩니다.',
+    'gift2-title': '부모님 선물',
+    'gift2-text': '갈라진 손끝을 보듬어주는 쌀가루의 포근함. 매일 쓰는 것이기에 더 감사한 마음을 전할 수 있습니다.',
+    'gift3-title': '친구·지인 선물',
+    'gift3-text': '크라프트 포장의 따뜻한 감성과 함께, \'보들보들한 일상\'이라는 특별한 메시지를 선물하세요.',
+    'gift-price': 'Gift Set 1+1 세트 · 28,000원',
+    'howto-title': '간단한 세 단계',
+    'howto-subtitle': '쌀라떼 미세 거품으로 보들보들한 피부를 만나보세요',
+    'step1-title': '톡톡 덜어내기',
+    'step1-text': '젖은 손바닥에 가루를 원하는 만큼 톡톡 덜어냅니다.',
+    'step1-note': '잘 나오는 3mm 구멍!',
+    'step2-title': '미세 거품 만들기',
+    'step2-text': '물을 살짝 묻혀 문질러 조밀한 쌀라떼 미세 거품을 냅니다.',
+    'step2-note': '고소한 천연향이 퍼집니다',
+    'step3-title': '부드럽게 마사지',
+    'step3-text': '얼굴, 손, 또는 전신을 부드럽게 마사지한 후 헹굽니다.',
+    'step3-note': '보들보들한 피부 완성',
+    'usage-title': '권장 사용량',
+    'usage1': '일반 손세정',
+    'usage2': '풍성하게 손세정',
+    'usage3': '세안 시',
+    'clinical-title': '검증된 효능과<br>안전성',
+    'safety-label': 'Safety First',
+    'safety-desc': '보들 쌀라떼 워시는 국내 공신력 있는 기관의 검사를 거쳐 안전성이 입증된 믿을 수 있는 제품입니다.',
+    'cert1-title': '한국비건인증원 인증',
+    'cert1-text': '100% 비건 화장품 인증 획득 · 동물 유래 성분 및 동물실험 없음',
+    'cert2-title': '민감성 피부 테스트',
+    'cert2-text': '민감성 피부 대상 무자극 판정',
+    'cert3-title': '피부 저자극 테스트',
+    'cert3-text': '피부 1차 자극 테스트 무자극 판정',
+    'immediate-sub': '단 1회 사용으로 증명된 효과 · (주)더마코스메틱 피부과학연구소 / 20~59세 성인 여성 대상',
+    'ef1-title': '자외선 차단제 세정력',
+    'ef1-desc': '워터프루프 선크림까지 깔끔하게 딥 클렌징',
+    'ef2-title': '피부 묵은 각질 제거',
+    'ef2-desc': '피부 결 정돈 및 투명도 개선',
+    'ef3-title': '피부 붉은기 진정',
+    'ef3-desc': '자극 받은 피부 즉각 진정 효과',
+    'ef4-title': '블랙헤드 세정력',
+    'ef4-desc': '모공 속 피지 노폐물 딥 클렌징',
+    'comp-title': '일반 비누와<br>무엇이 다를까요',
+    'comp-normal': '일반 알칼리 비누 / 워시',
+    'comp-bodle': '보들 쌀라떼 워시',
+    'comp-row1-label': '주성분',
+    'comp-row1-normal': '정제수(물), 합성 계면활성제',
+    'comp-row1-bodle': '유기농 쌀가루 55%, 자연 유래 계면활성제',
+    'comp-row2-label': '향기',
+    'comp-row2-normal': '인위적인 인공 향료',
+    'comp-row2-bodle': '천연 재료의 고소한 쌀라떼 향',
+    'comp-row3-label': '보관 / 휴대',
+    'comp-row3-normal': '습기에 무르고 휴대 시 샘',
+    'comp-row3-bodle': '습기 차단 & 덜어 쓸 필요 없는 용기',
+    'comp-row4-label': '피부 산도',
+    'comp-row4-normal': '알칼리성 pH 9~10 (자극 우려)',
+    'comp-row4-bodle': 'pH 5.5 미세산성 (순한 세정)',
+    'comp-row5-label': '특수 케어',
+    'comp-row5-normal': '단순 세정 위주',
+    'comp-row5-bodle': '손끝 습진 및 조갑 세로홈 보호, 각질 케어',
+    'info-title': '제품 기본정보',
+    'product-name': '보들 쌀라떼 워시',
+    'tbl-type': '제품 유형', 'tbl-type-val': '파우더 타입 워시 (핸드/페이셜/바디)',
+    'tbl-vol': '용량', 'tbl-vol-val': '55g (약 1개월~ 사용)',
+    'tbl-main': '주요 성분', 'tbl-main-val': '국내산 유기농 쌀가루 55%',
+    'tbl-mat': '용기 소재', 'tbl-mat-val': '친환경 트라이탄 (BPA Free)',
+    'tbl-cap': '캡', 'tbl-cap-val': '3mm 습기 차단 원터치 캡',
+    'tbl-scent': '향', 'tbl-scent-val': '천연 쌀가루 고소향 (인공 향료 무첨가)',
+    'tbl-target': '대상', 'tbl-target-val': '영유아부터 성인까지 전 가족용',
+    'tbl-vegan': '비건 인증', 'tbl-vegan-val': '한국비건인증원 인증',
+    'tbl-origin': '제조국', 'tbl-origin-val': '대한민국',
+    'tbl-seller': '판매원',
+    'tbl-mfg-val': '다비드코스메틱',
+    'tbl-mfg': '제조사',
+    'tbl-exp': '사용기한', 'tbl-exp-val': '제조일로부터 24개월',
+    'tbl-price': '판매 가격', 'tbl-price-val': '본품 18,000원 / 1+1 세트 28,000원 / 리필용 12,000원',
+    'info-note': '※ 제품의 외관, 라벨 디자인은 품질 개선을 위해 변경될 수 있습니다.<br>※ AG8 Revital™: 실리콘, 파라벤, 미네랄오일, 트리에탄올아민, 이미다졸리디닐우레아, 인공색소, 인공향료, PEG계 성분 무첨가',
+    'pricing-title': '나에게 맞는 보들을<br>선택하세요',
+    'price1-name': '본품', 'price1-desc': '55g 시그니처 용량',
+    'price1-f1': '친환경 트라이탄 용기', 'price1-f2': '3mm 원터치 캡', 'price1-f3': '약 1개월~ 사용',
+    'price2-name': '1+1 세트', 'price2-desc': '주방 + 욕실 스마트 배치',
+    'price2-f1': '본품 2개 구성', 'price2-f2': '가족 모두 사용', 'price2-f3': '개당 14,000원',
+    'price3-name': '리필용', 'price3-desc': '경제적인 리필 파우치',
+    'price3-f1': '친환경 파우치 포장', 'price3-f2': '본품 용기 재사용', 'price3-f3': '지구를 생각하는 선택',
+    'btn-buy': '구매하기',
+    'letter-text': '"저희 엄마의 거친 손끝을 보며 만든 진심이,<br>아이와 온 가족의 피부에<br>따뜻한 위로가 되길 바랍니다."',
+    'letter-sig': '💌 보들 스태프 드림',
+    'letter-note': '※ 세안 후 보습감은 개인의 피부 타입에 따라 차이가 있을 수 있습니다.',
+    'footer-tagline': '엄마의 갈라진 손끝에서 시작해,<br>온 가족의 피부를 보듬는 55%의 진심',
+    'footer-product': 'Product',
+    'footer-p1': '보들 쌀라떼 워시 55g',
+    'footer-p2': '유기농 쌀가루 55%',
+    'footer-p3': '한국비건인증원 인증',
+    'footer-info': 'Info',
+    'footer-i1': '전 가족 사용 가능',
+    'footer-i2': 'BPA Free 트라이탄 용기',
+    'footer-i3': '8가지 유해성분 무첨가',
+    'footer-ag8': 'AG8 Revital™ — 8가지 유해성분 무첨가',
+    'toast': '🛒 현재 준비 중입니다. 조금만 기다려 주세요!',
+  },
+  en: {
+    'page-title': 'Bodle Rice Latte Wash – Product Detail',
+    'nav-story': 'Story',
+    'nav-howto': 'How to',
+    'hero-title': 'Bodle<br>Rice Latte Wash',
+    'hero-subtitle': 'Born from my mother\'s cracked fingertips,<br>55% sincerity for every family\'s skin',
+    'badge-rice': '55% Rice Powder',
+    'badge-ph': 'pH 5.5 Mildly Acidic',
+    'badge-vegan': '🌿 100% Vegan Certified',
+    'hero-cta': 'Shop Now',
+    'story-title': 'It all began with a single word<br>from my mother—<br>"my fingertips crack<br>every time I wash."',
+    'story-p1': 'People wash their hands an average of 8 times a day. It\'s a necessary habit, but for a mother whose hands are never truly dry, those 8 essential washes take a toll on skin. Harsh soaps and dish detergents strip away not just dirt, but the skin\'s precious protective barrier.',
+    'story-p2': 'Fingertips crack. Nails chip. The backs of hands grow rough without noticing. <span class="story-highlight">Fingertip eczema</span>, <span class="story-highlight">vertical nail ridges</span>—have you experienced these too?',
+    'story-quote': '"What if washing could be thorough<br>and still be kind to cracked fingertips?"',
+    'story-p3': 'The answer lay in <strong>"rice water cleansing"</strong>, long cherished as a gentle skincare ritual. We didn\'t just add a token extract—we poured in <strong>55% real domestic organic rice powder</strong>. A heartfelt wish for the roughened tips of every mother\'s fingers to become soft again.',
+    'numbers-title': 'Our Story in Numbers',
+    'num1-label': 'Organic Rice Powder',
+    'num1-desc': '55% organic rice powder replaces purified water—reducing irritation from the very first wash.',
+    'num2-label': 'Mildly Acidic',
+    'num2-desc': 'A gentle pH close to the skin\'s natural barrier, safe for infants to adults.',
+    'num3-label': 'UV Sunscreen Removal',
+    'num3-desc': 'Even waterproof sunscreen is thoroughly removed, despite being naturally derived.',
+    'num4-label': 'Artificial Fragrance',
+    'num4-desc': 'Only the warm, natural aroma of real rice powder—nothing artificial.',
+    'recipe-title': '55% Real Rice Powder<br>in Every Bottle',
+    'ing1-name': '55% Organic Rice Powder',
+    'ing1-desc': 'Finely milled domestic organic rice replaces purified water as the base.',
+    'ing2-name': 'Nature-Derived Surfactants',
+    'ing2-desc': 'Gentle enough for infants and pregnant women. 100% Vegan Certified.',
+    'ing2-hl': 'Vegan Certified',
+    'ing3-name': 'Triple Enzyme Complex: Papain · Bromelain · Lipase',
+    'ing3-desc': 'Plant-derived enzymes gently and selectively remove dead skin cells.',
+    'ing4-desc': 'Soothes and protects sensitized skin.',
+    'ing4-hl': 'Soothing',
+    'full-ingredients': '<strong>Full Ingredients</strong><br>Rice Powder (55%), Sodium Cocoyl Isethionate, Sodium Lauroyl Glutamate (nature-derived), Corn Starch, Diglycerin, Allantoin, Papain, Bromelain, Lipase, Maltodextrin, Purified Water, Butylene Glycol, 1,2-Hexanediol, AG8 Revital™ (Free of 8 harmful substances)',
+    'why-title': 'Six Reasons<br>to Choose Bodle',
+    'why1-eyebrow': 'The Real Rice Latte Experience',
+    'why1-title': '55% Organic Rice Powder',
+    'why1-text': '<p>Not just a concept ingredient. Real organic rice powder at 55% reduces irritation from the moment you wash.</p><p style="margin-top:10px">The <strong>warm, naturally nutty scent</strong> of real rice—no artificial fragrance—brings a healing moment to every wash.</p>',
+    'why2-eyebrow': 'For Kids & Dad Too',
+    'why2-title': 'Safe Wash for the Whole Family',
+    'why2-text': '<p>Certified by Korea\'s Vegan Institute with a gentle, safe formula for the entire family—from infants to pregnant women.</p><div class="vegan-cert">🌿 Korea Vegan Institute Certified</div><div class="stat-pill">94.7% Sunscreen Removal Rate</div>',
+    'why3-eyebrow': 'Skin\'s Natural Health',
+    'why3-title': 'Mildly Acidic & 8-Free',
+    'why3-text': '<p>pH 5.5 formulation maintains acidity close to the skin\'s natural barrier.</p><p style="margin-top:10px">The <strong>triple enzyme complex</strong> (Papain · Bromelain · Lipase) selectively exfoliates dead skin only.</p><p style="margin-top:10px">Free of 8 potentially harmful substances—safe even for sensitive skin.</p>',
+    'why4-eyebrow': 'Engineering Details',
+    'why4-title': '3mm Dispensing Port & Moisture Lock',
+    'why4-text': '<p>A <strong>3mm dispensing port</strong> ensures smooth, clog-free dispensing every time.</p><p style="margin-top:10px">An airtight moisture-lock cap keeps the powder dry and fresh to the very last grain.</p>',
+    'why5-eyebrow': 'No Decanting Needed',
+    'why5-title': 'Compact 55g',
+    'why5-text': '<p>Fits right in your bag—perfect for travel, gym, and sauna without the hassle of decanting.</p><p style="margin-top:10px">55g is the <strong>optimal 1-month supply</strong> that preserves freshness and effectiveness after opening.</p>',
+    'why6-eyebrow': 'Sustainability',
+    'why6-title': 'A Bottle for Life',
+    'why6-text': '<p>Made from <strong>Tritan</strong>—the same durable, shatter-proof material used in baby bottles.</p><p style="margin-top:10px">Keep the sturdy main bottle and use the refill pouch (₩12,000) to care for both the planet and your wallet.</p>',
+    'gift-title': 'A Gift<br>from the Heart',
+    'gift-intro': 'More than just a bottle of wash—it\'s a warm expression of care for someone\'s daily life. Bodle, wrapped in heartfelt kraft packaging, becomes a meaningful gift for someone special.',
+    'gift1-title': 'New Baby Gift',
+    'gift1-text': 'With a formula gentle enough for newborns and new mothers alike, it\'s a practical, thoughtful gift for any growing family.',
+    'gift2-title': 'Gift for Parents',
+    'gift2-text': 'The comforting warmth of rice powder that soothes cracked fingertips—because you appreciate them every single day.',
+    'gift3-title': 'Gift for Friends',
+    'gift3-text': 'Pair the warm kraft packaging with a special message of "smooth, soft everyday life" for someone you care about.',
+    'gift-price': 'Gift Set 1+1 · ₩28,000',
+    'howto-title': 'Three Simple Steps',
+    'howto-subtitle': 'Discover beautifully soft skin with Rice Latte micro-foam',
+    'step1-title': 'Tap & Dispense',
+    'step1-text': 'Tap out the desired amount of powder onto wet palms.',
+    'step1-note': 'Smooth 3mm dispensing hole!',
+    'step2-title': 'Create Micro-Foam',
+    'step2-text': 'Add a little water and rub to create dense, creamy Rice Latte micro-foam.',
+    'step2-note': 'A warm, nutty natural scent fills the air',
+    'step3-title': 'Gently Massage',
+    'step3-text': 'Gently massage your face, hands, or body, then rinse thoroughly.',
+    'step3-note': 'Silky soft skin, complete',
+    'usage-title': 'Recommended Amount',
+    'usage1': 'Regular Hand Wash',
+    'usage2': 'Rich Lather Wash',
+    'usage3': 'Facial Cleanse',
+    'clinical-title': 'Proven Efficacy<br>& Safety',
+    'safety-label': 'Safety First',
+    'safety-desc': 'Bodle Rice Latte Wash has been tested and certified by accredited institutions in Korea for proven safety you can trust.',
+    'cert1-title': 'Korea Vegan Institute Certified',
+    'cert1-text': '100% Vegan Cosmetics Certified · No animal-derived ingredients or animal testing',
+    'cert2-title': 'Sensitive Skin Tested',
+    'cert2-text': 'Dermatologically tested — rated non-irritating for sensitive skin',
+    'cert3-title': 'Skin Low-Irritation Tested',
+    'cert3-text': 'Primary skin irritation test — rated non-irritating',
+    'immediate-sub': 'Effects proven in a single use · Dermacosmetic Skin Science Lab / Female subjects aged 20–59',
+    'ef1-title': 'Sunscreen Removal',
+    'ef1-desc': 'Deep-cleanses even waterproof sunscreen thoroughly',
+    'ef2-title': 'Dead Skin Cell Removal',
+    'ef2-desc': 'Refines skin texture and improves radiance',
+    'ef3-title': 'Redness Calming',
+    'ef3-desc': 'Immediate soothing effect on irritated skin',
+    'ef4-title': 'Blackhead Cleansing',
+    'ef4-desc': 'Deep-cleanses sebum and impurities from pores',
+    'comp-title': 'How Is It Different<br>from Regular Soap?',
+    'comp-normal': 'Regular Alkaline Soap / Wash',
+    'comp-bodle': 'Bodle Rice Latte Wash',
+    'comp-row1-label': 'Main Ingredient',
+    'comp-row1-normal': 'Purified water, synthetic surfactants',
+    'comp-row1-bodle': '55% organic rice powder, nature-derived surfactants',
+    'comp-row2-label': 'Fragrance',
+    'comp-row2-normal': 'Artificial synthetic fragrance',
+    'comp-row2-bodle': 'Natural nutty Rice Latte scent from real ingredients',
+    'comp-row3-label': 'Storage / Portability',
+    'comp-row3-normal': 'Melts in moisture, leaks when carried',
+    'comp-row3-bodle': 'Moisture-locked & no decanting needed',
+    'comp-row4-label': 'Skin pH',
+    'comp-row4-normal': 'Alkaline pH 9–10 (risk of irritation)',
+    'comp-row4-bodle': 'pH 5.5 mildly acidic (gentle cleansing)',
+    'comp-row5-label': 'Special Care',
+    'comp-row5-normal': 'Cleansing only',
+    'comp-row5-bodle': 'Protects against fingertip eczema & nail ridges, exfoliates dead skin',
+    'info-title': 'Product Information',
+    'product-name': 'Bodle Rice Latte Wash',
+    'tbl-type': 'Type', 'tbl-type-val': 'Powder Wash (Hand / Facial / Body)',
+    'tbl-vol': 'Volume', 'tbl-vol-val': '55g (approx. 1 month supply)',
+    'tbl-main': 'Key Ingredient', 'tbl-main-val': 'Domestic Organic Rice Powder 55%',
+    'tbl-mat': 'Container', 'tbl-mat-val': 'Eco-friendly Tritan (BPA Free)',
+    'tbl-cap': 'Cap', 'tbl-cap-val': '3mm Moisture-Lock One-Touch Cap',
+    'tbl-scent': 'Scent', 'tbl-scent-val': 'Natural Rice Powder Aroma (No Artificial Fragrance)',
+    'tbl-target': 'For', 'tbl-target-val': 'Whole family — infants to adults',
+    'tbl-vegan': 'Vegan Cert.', 'tbl-vegan-val': 'Korea Vegan Institute Certified',
+    'tbl-origin': 'Made in', 'tbl-origin-val': 'Republic of Korea',
+    'tbl-seller': 'Brand',
+    'tbl-mfg-val': 'DAVIDCOSMETICS',
+    'tbl-mfg': 'Manufacturer',
+    'tbl-exp': 'Expiry', 'tbl-exp-val': '24 months from manufacture date',
+    'tbl-price': 'Price', 'tbl-price-val': '₩18,000 Single / ₩28,000 1+1 Set / ₩12,000 Refill',
+    'info-note': '※ Product appearance and label design may change for quality improvement.<br>※ AG8 Revital™: Free of silicone, paraben, mineral oil, triethanolamine, imidazolidinyl urea, artificial colorants, artificial fragrance, and PEG compounds.',
+    'pricing-title': 'Choose the Right<br>Bodle for You',
+    'price1-name': 'Single', 'price1-desc': '55g signature size',
+    'price1-f1': 'Eco-friendly Tritan bottle', 'price1-f2': '3mm one-touch cap', 'price1-f3': 'Approx. 1 month supply',
+    'price2-name': '1+1 Set', 'price2-desc': 'Kitchen + bathroom smart placement',
+    'price2-f1': '2 bottles included', 'price2-f2': 'Share with the whole family', 'price2-f3': '₩14,000 per bottle',
+    'price3-name': 'Refill', 'price3-desc': 'Eco-friendly refill pouch',
+    'price3-f1': 'Eco-friendly pouch packaging', 'price3-f2': 'Reuse your original bottle', 'price3-f3': 'A choice that cares for the Earth',
+    'btn-buy': 'Buy Now',
+    'letter-text': '"The sincerity we put into this product,<br>born from watching my mother\'s rough fingertips,<br>we hope will be a warm comfort<br>for your children and your whole family\'s skin."',
+    'letter-sig': '💌 From the Bodle Team',
+    'letter-note': '※ Post-cleanse moisturizing sensation may vary by individual skin type.',
+    'footer-tagline': 'Born from my mother\'s cracked fingertips,<br>55% sincerity for every family\'s skin',
+    'footer-product': 'Product',
+    'footer-p1': 'Bodle Rice Latte Wash 55g',
+    'footer-p2': '55% Organic Rice Powder',
+    'footer-p3': 'Korea Vegan Institute Certified',
+    'footer-info': 'Info',
+    'footer-i1': 'Safe for the whole family',
+    'footer-i2': 'BPA Free Tritan bottle',
+    'footer-i3': 'Free of 8 harmful substances',
+    'footer-ag8': 'AG8 Revital™ — Free of 8 harmful substances',
+    'toast': '🛒 Coming soon! Stay tuned.',
+  }
+};
+
+// ══════════════════════════════════════════════
+// LANGUAGE SWITCHER LOGIC
+// ══════════════════════════════════════════════
+let currentLang = 'ko';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.setAttribute('lang', lang);
+
+  // Update all translatable elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (T[lang] && T[lang][key] !== undefined) {
+      if (el.tagName === 'TITLE') {
+        el.textContent = T[lang][key];
+      } else {
+        el.innerHTML = T[lang][key];
+      }
+    }
+  });
+
+  // Update page title
+  document.title = T[lang]['page-title'] || document.title;
+
+  // Update active lang buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+  });
+
+  // Update font for EN: DM Sans (body) + Lora (headings)
+  if (lang === 'en') {
+    document.body.style.fontFamily = "'DM Sans', sans-serif";
+    document.body.style.fontWeight = '400';
+    document.body.style.letterSpacing = '0.01em';
+    document.querySelectorAll('.section-title, .hero-title, .why-card-title, .step-title, .price-card-name, .letter-text, h1, h2, h3, .clinical-sub-label').forEach(el => {
+      el.style.fontFamily = "'Lora', serif";
+      el.style.letterSpacing = '0';
+      el.style.fontWeight = el.classList.contains('letter-text') ? '400' : '600';
+    });
+  } else {
+    document.body.style.fontFamily = "'Noto Sans KR', sans-serif";
+    document.body.style.fontWeight = '300';
+    document.body.style.letterSpacing = '';
+    document.querySelectorAll('.section-title, .hero-title, .why-card-title, .step-title, .price-card-name, .letter-text, h1, h2, h3, .clinical-sub-label').forEach(el => {
+      el.style.fontFamily = "'Noto Serif KR', serif";
+      el.style.letterSpacing = '';
+      el.style.fontWeight = '';
+    });
+  }
+
+  // Save preference
+  try { localStorage.setItem('bodle-lang', lang); } catch(e) {}
+}
+
+// Auto-detect language on page load
+(function() {
+  let savedLang = null;
+  try { savedLang = localStorage.getItem('bodle-lang'); } catch(e) {}
+  const browserLang = navigator.language || navigator.userLanguage || 'ko';
+  const defaultLang = savedLang || (browserLang.toLowerCase().startsWith('ko') ? 'ko' : 'en');
+  setLang(defaultLang);
+})();
+
+// Lang button click handlers
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    setLang(btn.getAttribute('data-lang'));
+  });
+});
+
+// ══════════════════════════════════════════════
+// NAV MENU TOGGLE
+// ══════════════════════════════════════════════
+document.getElementById('menuToggleBtn').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('active');
+});
+
+// ══════════════════════════════════════════════
+// SCROLL ANIMATIONS
+// ══════════════════════════════════════════════
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.number-card, .why-card, .step, .ingredient-item, .gift-tag, .price-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+
+<!-- LIGHTBOX SCRIPT -->
 <script>
 (function() {
   const photos = Array.from(document.querySelectorAll('.info-photo'));
@@ -2056,24 +1534,20 @@ document.querySelector('.menu-toggle').addEventListener('click', () => {
   const lbCounter = document.getElementById('lb-counter');
   let current = 0;
 
-  function getPhotos() {
-    return window._activeLbPhotos || photos;
-  }
+  function getPhotos() { return window._activeLbPhotos || photos; }
 
   function open(idx) {
-    window._activeLbPhotos = null; // info-photo 모드
+    window._activeLbPhotos = null;
     current = idx;
     lb.style.display = 'flex';
     document.body.style.overflow = 'hidden';
     update();
   }
-
   function close() {
     lb.style.display = 'none';
     document.body.style.overflow = '';
     window._activeLbPhotos = null;
   }
-
   function update() {
     const arr = getPhotos();
     lbImg.style.opacity = '0';
@@ -2083,19 +1557,9 @@ document.querySelector('.menu-toggle').addEventListener('click', () => {
       lbCounter.textContent = (current + 1) + ' / ' + arr.length;
     }, 100);
   }
+  function prev() { const len = getPhotos().length; current = (current - 1 + len) % len; update(); }
+  function next() { const len = getPhotos().length; current = (current + 1) % len; update(); }
 
-  function prev() {
-    const len = getPhotos().length;
-    current = (current - 1 + len) % len;
-    update();
-  }
-  function next() {
-    const len = getPhotos().length;
-    current = (current + 1) % len;
-    update();
-  }
-
-  // 히어로 갤러리에서 라이트박스 열 때 current 세팅 지원
   window._openLbFromHero = function(idx, photoArr) {
     window._activeLbPhotos = photoArr;
     current = idx;
@@ -2116,55 +1580,30 @@ document.querySelector('.menu-toggle').addEventListener('click', () => {
     if (e.key === 'Escape') close();
   });
 
-  // ── 터치 스와이프 지원 ──
-  let touchStartX = 0, touchStartY = 0, isDragging = false;
-
-  lb.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-    isDragging = false;
-  }, { passive: true });
-
-  lb.addEventListener('touchmove', (e) => {
-    const dx = Math.abs(e.touches[0].clientX - touchStartX);
-    const dy = Math.abs(e.touches[0].clientY - touchStartY);
-    if (dx > dy && dx > 8) isDragging = true;
-  }, { passive: true });
-
+  let touchStartX = 0, isDragging = false;
+  lb.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; isDragging = false; }, { passive: true });
+  lb.addEventListener('touchmove', (e) => { if (Math.abs(e.touches[0].clientX - touchStartX) > 8) isDragging = true; }, { passive: true });
   lb.addEventListener('touchend', (e) => {
     if (!isDragging) return;
     const deltaX = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(deltaX) > 50) {
-      deltaX < 0 ? next() : prev();
-    }
+    if (Math.abs(deltaX) > 50) { deltaX < 0 ? next() : prev(); }
     isDragging = false;
   });
 
-  // ── 마우스 드래그 지원 ──
   let mouseStartX = 0, mouseDragging = false;
-
-  lbImg.addEventListener('mousedown', (e) => {
-    mouseStartX = e.clientX;
-    mouseDragging = false;
-    e.preventDefault();
-  });
-
-  lb.addEventListener('mousemove', (e) => {
-    if (e.buttons !== 1) return;
-    if (Math.abs(e.clientX - mouseStartX) > 8) mouseDragging = true;
-  });
-
+  lbImg.addEventListener('mousedown', (e) => { mouseStartX = e.clientX; mouseDragging = false; e.preventDefault(); });
+  lb.addEventListener('mousemove', (e) => { if (e.buttons !== 1) return; if (Math.abs(e.clientX - mouseStartX) > 8) mouseDragging = true; });
   lb.addEventListener('mouseup', (e) => {
     if (!mouseDragging) return;
     const deltaX = e.clientX - mouseStartX;
-    if (Math.abs(deltaX) > 50) {
-      deltaX < 0 ? next() : prev();
-    }
+    if (Math.abs(deltaX) > 50) { deltaX < 0 ? next() : prev(); }
     mouseDragging = false;
   });
 })();
+</script>
 
-// ── 히어로 갤러리 ──
+<!-- HERO GALLERY SCRIPT -->
+<script>
 (function() {
   const thumbs = Array.from(document.querySelectorAll('.hero-thumb'));
   const mainImg = document.getElementById('heroMainImg');
@@ -2184,7 +1623,6 @@ document.querySelector('.menu-toggle').addEventListener('click', () => {
       mainImg.onload = () => mainImg.classList.remove('fade');
     }, 200);
     counter.textContent = (current + 1) + ' / ' + thumbs.length;
-    // 썸네일 스크롤
     thumbs[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   }
 
@@ -2192,14 +1630,12 @@ document.querySelector('.menu-toggle').addEventListener('click', () => {
   document.getElementById('heroGalleryPrev').addEventListener('click', e => { e.stopPropagation(); goTo(current - 1); });
   document.getElementById('heroGalleryNext').addEventListener('click', e => { e.stopPropagation(); goTo(current + 1); });
 
-  // 메인 이미지 클릭 → 라이트박스
   mainWrap.addEventListener('click', () => {
     if (typeof window._openLbFromHero === 'function') {
       window._openLbFromHero(current, thumbs.map(t => ({ src: t.dataset.src })));
     }
   });
 
-  // 스와이프
   let tsX = 0, dragging = false;
   mainWrap.addEventListener('touchstart', e => { tsX = e.touches[0].clientX; dragging = false; }, { passive: true });
   mainWrap.addEventListener('touchmove', e => { if (Math.abs(e.touches[0].clientX - tsX) > 8) dragging = true; }, { passive: true });
@@ -2209,7 +1645,6 @@ document.querySelector('.menu-toggle').addEventListener('click', () => {
     if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
   });
 
-  // 마우스 드래그
   let msX = 0, mDrag = false;
   mainWrap.addEventListener('mousedown', e => { msX = e.clientX; mDrag = false; e.preventDefault(); });
   mainWrap.addEventListener('mousemove', e => { if (e.buttons === 1 && Math.abs(e.clientX - msX) > 8) mDrag = true; });
@@ -2220,36 +1655,35 @@ document.querySelector('.menu-toggle').addEventListener('click', () => {
     mDrag = false;
   });
 
-  // 키보드
   document.addEventListener('keydown', e => {
     if (document.getElementById('lightbox')?.style.display !== 'none') return;
     if (e.key === 'ArrowLeft') goTo(current - 1);
     if (e.key === 'ArrowRight') goTo(current + 1);
   });
 })();
+</script>
+
+<!-- PURCHASE TOAST SCRIPT -->
+<script>
 function showReadyToast(e) {
   e.preventDefault();
   const existing = document.getElementById('ready-toast');
   if (existing) return;
 
+  const lang = document.documentElement.lang || 'ko';
+  const msg = (T && T[lang] && T[lang]['toast']) || '🛒 Coming soon!';
+
   const toast = document.createElement('div');
   toast.id = 'ready-toast';
-  toast.textContent = '🛒 현재 준비 중입니다. 조금만 기다려 주세요!';
+  toast.textContent = msg;
   toast.style.cssText = `
-    position: fixed;
-    bottom: 32px;
-    left: 50%;
+    position: fixed; bottom: 32px; left: 50%;
     transform: translateX(-50%) translateY(20px);
-    background: #3D2B1F;
-    color: #FAF6F0;
-    padding: 14px 28px;
-    border-radius: 100px;
-    font-size: 14px;
-    font-family: 'Noto Sans KR', sans-serif;
-    letter-spacing: 0.03em;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-    z-index: 99999;
-    opacity: 0;
+    background: #3D2B1F; color: #FAF6F0;
+    padding: 14px 28px; border-radius: 100px;
+    font-size: 14px; font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 0.03em; box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    z-index: 99999; opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
     white-space: nowrap;
   `;
@@ -2267,7 +1701,6 @@ function showReadyToast(e) {
   }, 2400);
 }
 
-// 모든 구매 버튼에 토스트 적용
 document.querySelectorAll('.btn-buy, .btn-primary, .gift-price').forEach(el => {
   el.addEventListener('click', showReadyToast);
 });
