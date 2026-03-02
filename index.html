@@ -1672,8 +1672,8 @@ document.querySelectorAll('.number-card, .why-card, .step, .ingredient-item, .gi
     thumbs[current].classList.add('active');
     mainImg.classList.add('fade');
     setTimeout(() => {
-      mainImg.src = thumbs[current].dataset.src;
       mainImg.onload = () => mainImg.classList.remove('fade');
+      mainImg.src = thumbs[current].dataset.src;
     }, 200);
     counter.textContent = (current + 1) + ' / ' + thumbs.length;
     thumbs[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
