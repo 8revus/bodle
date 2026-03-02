@@ -492,49 +492,66 @@
     .recipe-overlay { display: none !important; }
   }
 
-  @media (max-width: 480px) {
-    * { box-sizing: border-box; }
-    html, body { overflow-x: hidden; width: 100%; }
-    section { padding: 50px 20px; }
-    nav { padding: 12px 20px; }
-    section.hero { display: flex !important; flex-direction: column !important; padding: 70px 20px 24px !important; gap: 20px !important; min-height: unset !important; }
-    .hero-text { padding-right: 0; }
-    .hero-visual { width: 100%; }
-    .hero-title { font-size: 34px; margin-bottom: 12px; }
-    .hero-subtitle { font-size: 13px; margin-bottom: 16px; line-height: 1.7; }
-    .hero-badges { flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-    .hero-badges .badge { padding: 6px 12px; font-size: 11px; }
-    .btn-primary { display: block; text-align: center; padding: 14px 24px; }
-    .hero-gallery { max-width: 100%; width: 100%; }
-    .hero-gallery-main img { aspect-ratio: 4/3; }
-    .hero-gallery-btn { width: 32px; height: 32px; font-size: 18px; }
-    .hero-gallery-btn.prev { left: 8px; }
-    .hero-gallery-btn.next { right: 8px; }
-    .hero-thumbs { gap: 6px; margin-top: 8px; }
-    .hero-thumb { min-width: 52px; }
-    .numbers { padding: 60px 20px; }
-    .numbers-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 36px; }
-    .number-card { padding: 12px 8px; }
-    .number-circle { width: calc(50vw - 40px); max-width: 140px; height: calc(50vw - 40px); max-height: 140px; margin-bottom: 16px; }
-    .number-val { font-size: 28px; }
-    .number-unit { font-size: 13px; }
-    .number-label { font-size: 12px; margin-bottom: 6px; }
-    .number-desc { font-size: 11px; max-width: 100%; }
-    .story { gap: 32px; }
-    .RECIPE { gap: 32px; }
-    .full-RECIPE { font-size: 11px; }
-    .why-grid { gap: 16px; }
-    .why-card { padding: 24px 20px; }
-    .gift-body { gap: 32px; }
-    .gift-header { margin-bottom: 24px; }
-    .steps { gap: 16px; }
-    .pricing-grid { gap: 16px; }
-    .price-card { padding: 32px 24px; }
-    footer { padding: 48px 20px; gap: 32px; }
-    .footer-copy { font-size: 11px; }
-    .section-title { font-size: 28px; }
-  }
-</style>
+  /* ... (이전 PC용 CSS 코드들이 위에 있습니다) ... */
+
+    @media (max-width: 480px) {
+      * { box-sizing: border-box; }
+      html, body { overflow-x: hidden; width: 100%; }
+      section { padding: 50px 20px; }
+      nav { padding: 12px 20px; }
+      section.hero { display: flex !important; flex-direction: column !important; padding: 70px 20px 24px !important; gap: 20px !important; min-height: unset !important; }
+      .hero-text { padding-right: 0; }
+      .hero-visual { width: 100%; }
+      .hero-title { font-size: 34px; margin-bottom: 12px; }
+      .hero-subtitle { font-size: 13px; margin-bottom: 16px; line-height: 1.7; }
+      .hero-badges { flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+      .hero-badges .badge { padding: 6px 12px; font-size: 11px; }
+      .btn-primary { display: block; text-align: center; padding: 14px 24px; }
+      .hero-gallery { max-width: 100%; width: 100%; }
+      .hero-gallery-main img { aspect-ratio: 4/3; }
+      .hero-gallery-btn { width: 32px; height: 32px; font-size: 18px; }
+      .hero-gallery-btn.prev { left: 8px; }
+      .hero-gallery-btn.next { right: 8px; }
+      .hero-thumbs { gap: 6px; margin-top: 8px; }
+      .hero-thumb { min-width: 52px; }
+      .numbers { padding: 60px 20px; }
+      .numbers-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 36px; }
+      .number-card { padding: 12px 8px; }
+      .number-circle { width: calc(50vw - 40px); max-width: 140px; height: calc(50vw - 40px); max-height: 140px; margin-bottom: 16px; }
+      .number-val { font-size: 28px; }
+      .number-unit { font-size: 13px; }
+      .number-label { font-size: 12px; margin-bottom: 6px; }
+      .number-desc { font-size: 11px; max-width: 100%; }
+      .story { gap: 32px; }
+      .RECIPE { gap: 32px; }
+      .full-RECIPE { font-size: 11px; }
+      .why-grid { gap: 16px; }
+      .why-card { padding: 24px 20px; }
+      .gift-body { gap: 32px; }
+      .gift-header { margin-bottom: 24px; }
+      .steps { gap: 16px; }
+      .pricing-grid { gap: 16px; }
+      .price-card { padding: 32px 24px; }
+      footer { padding: 48px 20px; gap: 32px; }
+      .footer-copy { font-size: 11px; }
+      .section-title { font-size: 28px; }
+
+      /* Comparison 테이블 텍스트 끼임 방지 추가 */
+      .compare-table th, 
+      .compare-table td {
+        padding: 15px 8px !important;
+        font-size: 11px !important;
+        line-height: 1.4;
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+      .compare-table td:first-child {
+        width: 28% !important;
+        padding-left: 6px !important;
+        font-size: 10px !important;
+      }
+    } /* @media 닫기 */
+  </style>
 </head>
 <body>
 
